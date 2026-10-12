@@ -260,6 +260,7 @@ def test_formula_cells_without_a_saved_value_are_warned(capsys, tmp_path, rows, 
 
 def test_a_workbook_saved_by_excel_is_not_told_to_save(capsys, tmp_path, rows, enzyme_template):
     """Formula cells with a saved result, even an empty one, are not 'unsaved'."""
+    import re
     import zipfile
     path = write_project_sheet(tmp_path / "p.xlsx", [rows])
     wb = openpyxl.load_workbook(path)
@@ -271,9 +272,8 @@ def test_a_workbook_saved_by_excel_is_not_told_to_save(capsys, tmp_path, rows, e
         for item in zin.namelist():
             data = zin.read(item)
             if item == "xl/worksheets/sheet1.xml":
-                data = data.replace(b'<f>5000*1</f><v></v>', b'<f>5000*1</f><v>5000</v>')
-                data = data.replace(b'<f>IF(1=1,"","x")</f><v></v>',
-                                    b'<f>IF(1=1,"","x")</f><v></v>')
+                # give the first formula a result; leave the second with an empty one
+                data = re.sub(rb"(<f>5000\*1</f>)<v\s*(?:/>|></v>)", rb"\g<1><v>5000</v>", data)
             zout.writestr(item, data)
     _, out, _ = run(capsys, "--design", saved, "--date", DATE, "--template", enzyme_template,
                     "--out-dir", tmp_path / "o")
