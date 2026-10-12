@@ -1,0 +1,5 @@
+project_no,sub_no,method,plasmid_name,re1,re2,backbone,backbone_length,oligo1,oligo2,template,insert_length
+EX001,1,HiFi,pExample-01,EcoRI-HF,BamHI-HF,pBackbone-A,5200,OL-001,OL-002,pTemplate-A,1200
+EX001,2,HiFi,pExample-02,EcoRI-HF,,pBackbone-A,5200,OL-003,OL-004,pTemplate-B,900
+EX001,3,HiFi,pExample-03,XhoI,BamHI-HF,pBackbone-B,4800,OL-005,OL-006,pTemplate-C,1500
+,,,,,,,,OL-007,OL-008,pTemplate-D,700

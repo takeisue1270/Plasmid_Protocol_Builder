@@ -1,0 +1,28 @@
+# generated
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.coverage
+htmlcov/
+
+# output of make_protocol.py
+output/
+
+# workbooks are inputs and outputs, not part of the package;
+# only the two bundled templates are tracked. The last matching line wins,
+# so the re-include comes after the exclusions and the lock-file rule last.
+*.xlsx
+*.xlsm
+!templates/*.xlsx
+~$*
+
+# OS
+.DS_Store
+Thumbs.db

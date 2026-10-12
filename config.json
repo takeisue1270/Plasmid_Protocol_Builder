@@ -1,0 +1,188 @@
+{
+  "data_sheet": "Data",
+  "design_sheet": "Projects",
+  "construction_label": "Plasmid Construction",
+  "default_method": "HiFi",
+  "columns": {
+    "project_no": 2,
+    "sub_no": 3,
+    "method": 4,
+    "plasmid_map": 5,
+    "length": 6,
+    "plasmid_name": 7,
+    "re1": 8,
+    "re2": 9,
+    "backbone": 10,
+    "backbone_prep": 11,
+    "backbone_length": 12,
+    "oligo1": 13,
+    "oligo2": 14,
+    "template": 15,
+    "insert_length": 16,
+    "pcr_annealing": 17,
+    "dpni": 18,
+    "transformation": 19,
+    "miniprep": 20,
+    "plasmid_ext": 21,
+    "nanopore": 22,
+    "sequence_check": 23,
+    "plasmid_no": 24,
+    "plasmid_name_short": 25,
+    "competent_cell": 26,
+    "conc": 27,
+    "design": 28,
+    "order": 29,
+    "obtained": 30,
+    "made_by": 31,
+    "entered_by": 32,
+    "project_number": 33
+  },
+  "methods": {
+    "HiFi": {
+      "template": "templates/protocol.hifi.xlsx",
+      "required_sheet": "HiFi",
+      "file_suffix": "HiFi.TF",
+      "max_rows": 12,
+      "max_rows_note": "the RE, PCR, HiFi and TF sheets each have 12 rows",
+      "read_columns": [
+        "project_no",
+        "sub_no",
+        "plasmid_name",
+        "re1",
+        "re2",
+        "backbone",
+        "backbone_length",
+        "oligo1",
+        "oligo2",
+        "template",
+        "insert_length"
+      ],
+      "required_columns": [
+        "sub_no",
+        "plasmid_name",
+        "re1",
+        "re2",
+        "backbone",
+        "backbone_length",
+        "oligo1",
+        "oligo2",
+        "template",
+        "insert_length"
+      ],
+      "numeric_columns": [
+        "sub_no",
+        "backbone_length",
+        "insert_length"
+      ]
+    },
+    "GGA": {
+      "template": "templates/protocol.gga.xlsx",
+      "required_sheet": "GGA",
+      "file_suffix": "GGA.TF",
+      "max_rows": 48,
+      "max_rows_note": "the Anneal, GGA and TF sheets each have 48 rows",
+      "read_columns": [
+        "sub_no",
+        "plasmid_name",
+        "re1",
+        "backbone",
+        "oligo1",
+        "oligo2"
+      ],
+      "required_columns": [
+        "sub_no",
+        "plasmid_name",
+        "re1",
+        "backbone",
+        "oligo1",
+        "oligo2"
+      ],
+      "numeric_columns": [
+        "sub_no"
+      ]
+    }
+  },
+  "header_check": {
+    "J": [
+      "Backbone plasmid/gDNA",
+      "Backborn plasmid/gDNA"
+    ],
+    "M": [
+      "PCR primer/Oligo 1"
+    ],
+    "N": [
+      "PCR primer/Oligo 2"
+    ],
+    "O": [
+      "Template"
+    ]
+  },
+  "template_notes": [
+    {
+      "template": "HiFi",
+      "sheet": "RElist",
+      "cell": "A3",
+      "text": "Add the enzymes you need below the last row, one per row, keeping columns A-D (Enzyme, Buffer, Reaction temp., Heat inactivation). Write No in D if the enzyme cannot be heat-inactivated. The RE sheet reads A4:D650. Edits made to an output workbook are lost the next time it is built: copy the template, edit the copy and pass it with --template."
+    },
+    {
+      "template": "HiFi",
+      "sheet": "RE",
+      "cell": "H13",
+      "text": "The buffer and its volume (1/10 of the reaction) are for 10×CutSmart. An enzyme that needs another buffer needs this column and the premix below changed."
+    },
+    {
+      "template": "HiFi",
+      "sheet": "PCR",
+      "cell": "B28",
+      "text": "Volumes and cycling are for KOD One. For another polymerase change the volumes here and the conditions in rows 37-41."
+    },
+    {
+      "template": "HiFi",
+      "sheet": "PCR",
+      "cell": "B46",
+      "text": "The volumes in rows 46-47 are for FastDigest-type DpnI and its 10×FD buffer. For another DpnI, change them."
+    },
+    {
+      "template": "HiFi",
+      "sheet": "Data",
+      "cell": "A1",
+      "text": "Only columns B, C, G, H, I, J, L, M, N, O and P are read by the other sheets. The other columns are free for your own notes."
+    },
+    {
+      "template": "GGA",
+      "sheet": "Anneal",
+      "cell": "B9",
+      "text": "The reagents and volumes are those of the author's protocol. For other reagents, change the rows below."
+    },
+    {
+      "template": "GGA",
+      "sheet": "GGA",
+      "cell": "B14",
+      "text": "The volumes are for the NEBridge kit named here. For another kit, change the reagent rows and volumes."
+    },
+    {
+      "template": "GGA",
+      "sheet": "GGA",
+      "cell": "B25",
+      "text": "The volumes are for the NEBridge kit named here. For another kit, change the reagent rows and volumes."
+    },
+    {
+      "template": "GGA",
+      "sheet": "Data",
+      "cell": "A1",
+      "text": "Only columns C, G, H, J, M and N are read by the other sheets. The other columns are free for your own notes."
+    },
+    {
+      "template": "both",
+      "sheet": "TF",
+      "cell": "B6",
+      "text": "25 uL of competent cells per sample is the author's value. Change the 25 in the formula in column C, the text in column E and the instruction line in row 12 to match the cells you use."
+    },
+    {
+      "template": "both",
+      "sheet": "TF",
+      "cell": "B7",
+      "text": "900 uL of medium per sample is the author's value. Change the 900 in the formula in column C, the text in column E and the instruction line in row 18 to match the medium you use."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Plasmid Protocol Builder",
+  "upload_type": "software",
+  "description": "<p>A command-line tool that builds bench-protocol workbooks for HiFi assembly and Golden Gate (GGA) assembly from a design table, given as a CSV file or as one block of a project workbook. The rows are written to the Data sheet of an Excel template whose other sheets are formulas: restriction digestion, PCR, assembly mix, oligo annealing, ligation mix and transformation. Reagent volumes and conditions are documented and meant to be edited.</p>",
+  "license": "mit-license",
+  "access_right": "open",
+  "version": "v0.1.0",
+  "creators": [
+    {
+      "name": "Takesue, Hiroaki",
+      "orcid": "0000-0001-8585-5494",
+      "affiliation": "Division of Transcriptomics, Medical Institute of Bioregulation, Kyushu University"
+    }
+  ],
+  "keywords": [
+    "molecular cloning",
+    "Golden Gate assembly",
+    "HiFi assembly",
+    "bench protocol",
+    "plasmid construction"
+  ],
+  "related_identifiers": []
+}

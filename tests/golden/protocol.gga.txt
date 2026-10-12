@@ -1,0 +1,1085 @@
+Data!A1	value	Plasmid Construction
+Data!A1	comment	Only columns C, G, H, J, M and N are read by the other sheets. The other columns are free for your own notes.
+Data!B1	value	Project No.
+Data!C1	value	Sub. No.
+Data!D1	value	Method
+Data!E1	value	Plasmid map
+Data!F1	value	Length
+Data!G1	value	Plasmid name
+Data!H1	value	RE1
+Data!I1	value	RE2
+Data!J1	value	Backbone plasmid/gDNA
+Data!K1	value	Backbone prep.
+Data!L1	value	Length (bp)
+Data!M1	value	PCR primer/Oligo 1
+Data!N1	value	PCR primer/Oligo 2
+Data!O1	value	Template
+Data!P1	value	Length (bp)
+Data!Q1	value	PCR/Annealing
+Data!R1	value	DpnI
+Data!S1	value	Transformation
+Data!T1	value	Miniprep
+Data!U1	value	Plasmid Ext.
+Data!V1	value	Nanopore
+Data!W1	value	Sequence check
+Data!X1	value	Plasmid No.
+Data!Y1	value	Plasmid name
+Data!Z1	value	Competent cell
+Data!AA1	value	Conc
+Data!AB1	value	Design
+Data!AC1	value	Order
+Data!AD1	value	Obtained
+Data!AE1	value	Made by
+Data!AF1	value	Entered by
+Data!AG1	value	Project number
+Anneal!A1	formula	=TODAY()
+Anneal!A1	numfmt	yyyy/mm/dd
+Anneal!C1	value	Cloning with Golden-gate assembly
+Anneal!A3	value	1. 5' phosphorylation of oligo DNA
+Anneal!B4	value	Thaw the oligo DNA and T4 DNA Ligase Reaction Buffer at room temperature
+Anneal!B6	value	Samples
+Anneal!C6	formula	=COUNTA(Data!C2:C49)
+Anneal!D6	value	samples
+Anneal!B7	value	Mix tubes to prepare
+Anneal!C7	formula	=C6+2
+Anneal!D7	value	tubes
+Anneal!E7	value	(samples + 2)
+Anneal!B9	value	• T4 PNK mix preparation
+Anneal!B9	comment	The reagents and volumes are those of the author's protocol. For other reagents, change the rows below.
+Anneal!B10	value	Reagent
+Anneal!C10	value	Final
+Anneal!D10	value	1 sample (uL)
+Anneal!E10	value	Mix (uL)
+Anneal!A11	value	□
+Anneal!B11	value	milliQ
+Anneal!D11	value	6.75
+Anneal!D11	numfmt	0.00
+Anneal!E11	formula	=D11*$C$7
+Anneal!E11	numfmt	0.0
+Anneal!F11	value	uL
+Anneal!A12	value	□
+Anneal!B12	value	T4 DNA Ligase Reaction Buffer
+Anneal!C12	value	1x
+Anneal!D12	value	1
+Anneal!D12	numfmt	0.00
+Anneal!E12	formula	=D12*$C$7
+Anneal!E12	numfmt	0.0
+Anneal!F12	value	uL
+Anneal!A13	value	□
+Anneal!B13	value	T4 Polynucleotide Kinase
+Anneal!C13	value	5 units
+Anneal!D13	value	0.25
+Anneal!D13	numfmt	0.00
+Anneal!E13	formula	=D13*$C$7
+Anneal!E13	numfmt	0.0
+Anneal!F13	value	uL
+Anneal!B14	value	Total
+Anneal!D14	formula	=SUM(D11:D13)
+Anneal!D14	numfmt	0.00
+Anneal!E14	formula	=SUM(E11:E13)
+Anneal!E14	numfmt	0.0
+Anneal!F14	value	uL
+Anneal!B16	value	• Oligo mix preparation (one sample at a time)
+Anneal!B17	value	Reagent
+Anneal!C17	value	Final
+Anneal!D17	value	Volume (uL)
+Anneal!A18	value	□
+Anneal!B18	value	T4PNK mix
+Anneal!D18	formula	=$D$14
+Anneal!D18	numfmt	0.00
+Anneal!F18	value	uL
+Anneal!A19	value	□
+Anneal!B19	value	Oligo F
+Anneal!C19	value	10 uM
+Anneal!D19	value	1
+Anneal!D19	numfmt	0.00
+Anneal!F19	value	uL
+Anneal!A20	value	□
+Anneal!B20	value	Oligo R
+Anneal!C20	value	10 uM
+Anneal!D20	value	1
+Anneal!D20	numfmt	0.00
+Anneal!F20	value	uL
+Anneal!B21	value	Total
+Anneal!D21	formula	=SUM(D18:D20)
+Anneal!D21	numfmt	0.00
+Anneal!F21	value	uL
+Anneal!A23	value	□
+Anneal!B23	value	Mix well by vortexing, then spin down
+Anneal!A24	value	□
+Anneal!B24	value	Run the following reaction in a thermal cycler
+Anneal!B25	value	37°C 30:00  →  95°C 10:00  →  95°C→85°C -2°C/sec  →  85°C→25°C -0.3°C/sec
+Anneal!B26	value	(checkpoint) Can be stored at -30°C
+Anneal!B28	value	Oligo list
+Anneal!B29	value	Sub. No.
+Anneal!C29	value	Plasmid name
+Anneal!D29	value	Oligo F
+Anneal!E29	value	Oligo R
+Anneal!A30	formula	=IF(Data!C2="","","□")
+Anneal!B30	formula	=IF(Data!C2="","",Data!C2)
+Anneal!C30	formula	=IF(Data!C2="","",Data!G2)
+Anneal!D30	formula	=IF(Data!C2="","",Data!M2)
+Anneal!E30	formula	=IF(Data!C2="","",Data!N2)
+Anneal!A31	formula	=IF(Data!C3="","","□")
+Anneal!B31	formula	=IF(Data!C3="","",Data!C3)
+Anneal!C31	formula	=IF(Data!C3="","",Data!G3)
+Anneal!D31	formula	=IF(Data!C3="","",Data!M3)
+Anneal!E31	formula	=IF(Data!C3="","",Data!N3)
+Anneal!A32	formula	=IF(Data!C4="","","□")
+Anneal!B32	formula	=IF(Data!C4="","",Data!C4)
+Anneal!C32	formula	=IF(Data!C4="","",Data!G4)
+Anneal!D32	formula	=IF(Data!C4="","",Data!M4)
+Anneal!E32	formula	=IF(Data!C4="","",Data!N4)
+Anneal!A33	formula	=IF(Data!C5="","","□")
+Anneal!B33	formula	=IF(Data!C5="","",Data!C5)
+Anneal!C33	formula	=IF(Data!C5="","",Data!G5)
+Anneal!D33	formula	=IF(Data!C5="","",Data!M5)
+Anneal!E33	formula	=IF(Data!C5="","",Data!N5)
+Anneal!A34	formula	=IF(Data!C6="","","□")
+Anneal!B34	formula	=IF(Data!C6="","",Data!C6)
+Anneal!C34	formula	=IF(Data!C6="","",Data!G6)
+Anneal!D34	formula	=IF(Data!C6="","",Data!M6)
+Anneal!E34	formula	=IF(Data!C6="","",Data!N6)
+Anneal!A35	formula	=IF(Data!C7="","","□")
+Anneal!B35	formula	=IF(Data!C7="","",Data!C7)
+Anneal!C35	formula	=IF(Data!C7="","",Data!G7)
+Anneal!D35	formula	=IF(Data!C7="","",Data!M7)
+Anneal!E35	formula	=IF(Data!C7="","",Data!N7)
+Anneal!A36	formula	=IF(Data!C8="","","□")
+Anneal!B36	formula	=IF(Data!C8="","",Data!C8)
+Anneal!C36	formula	=IF(Data!C8="","",Data!G8)
+Anneal!D36	formula	=IF(Data!C8="","",Data!M8)
+Anneal!E36	formula	=IF(Data!C8="","",Data!N8)
+Anneal!A37	formula	=IF(Data!C9="","","□")
+Anneal!B37	formula	=IF(Data!C9="","",Data!C9)
+Anneal!C37	formula	=IF(Data!C9="","",Data!G9)
+Anneal!D37	formula	=IF(Data!C9="","",Data!M9)
+Anneal!E37	formula	=IF(Data!C9="","",Data!N9)
+Anneal!A38	formula	=IF(Data!C10="","","□")
+Anneal!B38	formula	=IF(Data!C10="","",Data!C10)
+Anneal!C38	formula	=IF(Data!C10="","",Data!G10)
+Anneal!D38	formula	=IF(Data!C10="","",Data!M10)
+Anneal!E38	formula	=IF(Data!C10="","",Data!N10)
+Anneal!A39	formula	=IF(Data!C11="","","□")
+Anneal!B39	formula	=IF(Data!C11="","",Data!C11)
+Anneal!C39	formula	=IF(Data!C11="","",Data!G11)
+Anneal!D39	formula	=IF(Data!C11="","",Data!M11)
+Anneal!E39	formula	=IF(Data!C11="","",Data!N11)
+Anneal!A40	formula	=IF(Data!C12="","","□")
+Anneal!B40	formula	=IF(Data!C12="","",Data!C12)
+Anneal!C40	formula	=IF(Data!C12="","",Data!G12)
+Anneal!D40	formula	=IF(Data!C12="","",Data!M12)
+Anneal!E40	formula	=IF(Data!C12="","",Data!N12)
+Anneal!A41	formula	=IF(Data!C13="","","□")
+Anneal!B41	formula	=IF(Data!C13="","",Data!C13)
+Anneal!C41	formula	=IF(Data!C13="","",Data!G13)
+Anneal!D41	formula	=IF(Data!C13="","",Data!M13)
+Anneal!E41	formula	=IF(Data!C13="","",Data!N13)
+Anneal!A42	formula	=IF(Data!C14="","","□")
+Anneal!B42	formula	=IF(Data!C14="","",Data!C14)
+Anneal!C42	formula	=IF(Data!C14="","",Data!G14)
+Anneal!D42	formula	=IF(Data!C14="","",Data!M14)
+Anneal!E42	formula	=IF(Data!C14="","",Data!N14)
+Anneal!A43	formula	=IF(Data!C15="","","□")
+Anneal!B43	formula	=IF(Data!C15="","",Data!C15)
+Anneal!C43	formula	=IF(Data!C15="","",Data!G15)
+Anneal!D43	formula	=IF(Data!C15="","",Data!M15)
+Anneal!E43	formula	=IF(Data!C15="","",Data!N15)
+Anneal!A44	formula	=IF(Data!C16="","","□")
+Anneal!B44	formula	=IF(Data!C16="","",Data!C16)
+Anneal!C44	formula	=IF(Data!C16="","",Data!G16)
+Anneal!D44	formula	=IF(Data!C16="","",Data!M16)
+Anneal!E44	formula	=IF(Data!C16="","",Data!N16)
+Anneal!A45	formula	=IF(Data!C17="","","□")
+Anneal!B45	formula	=IF(Data!C17="","",Data!C17)
+Anneal!C45	formula	=IF(Data!C17="","",Data!G17)
+Anneal!D45	formula	=IF(Data!C17="","",Data!M17)
+Anneal!E45	formula	=IF(Data!C17="","",Data!N17)
+Anneal!A46	formula	=IF(Data!C18="","","□")
+Anneal!B46	formula	=IF(Data!C18="","",Data!C18)
+Anneal!C46	formula	=IF(Data!C18="","",Data!G18)
+Anneal!D46	formula	=IF(Data!C18="","",Data!M18)
+Anneal!E46	formula	=IF(Data!C18="","",Data!N18)
+Anneal!A47	formula	=IF(Data!C19="","","□")
+Anneal!B47	formula	=IF(Data!C19="","",Data!C19)
+Anneal!C47	formula	=IF(Data!C19="","",Data!G19)
+Anneal!D47	formula	=IF(Data!C19="","",Data!M19)
+Anneal!E47	formula	=IF(Data!C19="","",Data!N19)
+Anneal!A48	formula	=IF(Data!C20="","","□")
+Anneal!B48	formula	=IF(Data!C20="","",Data!C20)
+Anneal!C48	formula	=IF(Data!C20="","",Data!G20)
+Anneal!D48	formula	=IF(Data!C20="","",Data!M20)
+Anneal!E48	formula	=IF(Data!C20="","",Data!N20)
+Anneal!A49	formula	=IF(Data!C21="","","□")
+Anneal!B49	formula	=IF(Data!C21="","",Data!C21)
+Anneal!C49	formula	=IF(Data!C21="","",Data!G21)
+Anneal!D49	formula	=IF(Data!C21="","",Data!M21)
+Anneal!E49	formula	=IF(Data!C21="","",Data!N21)
+Anneal!A50	formula	=IF(Data!C22="","","□")
+Anneal!B50	formula	=IF(Data!C22="","",Data!C22)
+Anneal!C50	formula	=IF(Data!C22="","",Data!G22)
+Anneal!D50	formula	=IF(Data!C22="","",Data!M22)
+Anneal!E50	formula	=IF(Data!C22="","",Data!N22)
+Anneal!A51	formula	=IF(Data!C23="","","□")
+Anneal!B51	formula	=IF(Data!C23="","",Data!C23)
+Anneal!C51	formula	=IF(Data!C23="","",Data!G23)
+Anneal!D51	formula	=IF(Data!C23="","",Data!M23)
+Anneal!E51	formula	=IF(Data!C23="","",Data!N23)
+Anneal!A52	formula	=IF(Data!C24="","","□")
+Anneal!B52	formula	=IF(Data!C24="","",Data!C24)
+Anneal!C52	formula	=IF(Data!C24="","",Data!G24)
+Anneal!D52	formula	=IF(Data!C24="","",Data!M24)
+Anneal!E52	formula	=IF(Data!C24="","",Data!N24)
+Anneal!A53	formula	=IF(Data!C25="","","□")
+Anneal!B53	formula	=IF(Data!C25="","",Data!C25)
+Anneal!C53	formula	=IF(Data!C25="","",Data!G25)
+Anneal!D53	formula	=IF(Data!C25="","",Data!M25)
+Anneal!E53	formula	=IF(Data!C25="","",Data!N25)
+Anneal!A54	formula	=IF(Data!C26="","","□")
+Anneal!B54	formula	=IF(Data!C26="","",Data!C26)
+Anneal!C54	formula	=IF(Data!C26="","",Data!G26)
+Anneal!D54	formula	=IF(Data!C26="","",Data!M26)
+Anneal!E54	formula	=IF(Data!C26="","",Data!N26)
+Anneal!A55	formula	=IF(Data!C27="","","□")
+Anneal!B55	formula	=IF(Data!C27="","",Data!C27)
+Anneal!C55	formula	=IF(Data!C27="","",Data!G27)
+Anneal!D55	formula	=IF(Data!C27="","",Data!M27)
+Anneal!E55	formula	=IF(Data!C27="","",Data!N27)
+Anneal!A56	formula	=IF(Data!C28="","","□")
+Anneal!B56	formula	=IF(Data!C28="","",Data!C28)
+Anneal!C56	formula	=IF(Data!C28="","",Data!G28)
+Anneal!D56	formula	=IF(Data!C28="","",Data!M28)
+Anneal!E56	formula	=IF(Data!C28="","",Data!N28)
+Anneal!A57	formula	=IF(Data!C29="","","□")
+Anneal!B57	formula	=IF(Data!C29="","",Data!C29)
+Anneal!C57	formula	=IF(Data!C29="","",Data!G29)
+Anneal!D57	formula	=IF(Data!C29="","",Data!M29)
+Anneal!E57	formula	=IF(Data!C29="","",Data!N29)
+Anneal!A58	formula	=IF(Data!C30="","","□")
+Anneal!B58	formula	=IF(Data!C30="","",Data!C30)
+Anneal!C58	formula	=IF(Data!C30="","",Data!G30)
+Anneal!D58	formula	=IF(Data!C30="","",Data!M30)
+Anneal!E58	formula	=IF(Data!C30="","",Data!N30)
+Anneal!A59	formula	=IF(Data!C31="","","□")
+Anneal!B59	formula	=IF(Data!C31="","",Data!C31)
+Anneal!C59	formula	=IF(Data!C31="","",Data!G31)
+Anneal!D59	formula	=IF(Data!C31="","",Data!M31)
+Anneal!E59	formula	=IF(Data!C31="","",Data!N31)
+Anneal!A60	formula	=IF(Data!C32="","","□")
+Anneal!B60	formula	=IF(Data!C32="","",Data!C32)
+Anneal!C60	formula	=IF(Data!C32="","",Data!G32)
+Anneal!D60	formula	=IF(Data!C32="","",Data!M32)
+Anneal!E60	formula	=IF(Data!C32="","",Data!N32)
+Anneal!A61	formula	=IF(Data!C33="","","□")
+Anneal!B61	formula	=IF(Data!C33="","",Data!C33)
+Anneal!C61	formula	=IF(Data!C33="","",Data!G33)
+Anneal!D61	formula	=IF(Data!C33="","",Data!M33)
+Anneal!E61	formula	=IF(Data!C33="","",Data!N33)
+Anneal!A62	formula	=IF(Data!C34="","","□")
+Anneal!B62	formula	=IF(Data!C34="","",Data!C34)
+Anneal!C62	formula	=IF(Data!C34="","",Data!G34)
+Anneal!D62	formula	=IF(Data!C34="","",Data!M34)
+Anneal!E62	formula	=IF(Data!C34="","",Data!N34)
+Anneal!A63	formula	=IF(Data!C35="","","□")
+Anneal!B63	formula	=IF(Data!C35="","",Data!C35)
+Anneal!C63	formula	=IF(Data!C35="","",Data!G35)
+Anneal!D63	formula	=IF(Data!C35="","",Data!M35)
+Anneal!E63	formula	=IF(Data!C35="","",Data!N35)
+Anneal!A64	formula	=IF(Data!C36="","","□")
+Anneal!B64	formula	=IF(Data!C36="","",Data!C36)
+Anneal!C64	formula	=IF(Data!C36="","",Data!G36)
+Anneal!D64	formula	=IF(Data!C36="","",Data!M36)
+Anneal!E64	formula	=IF(Data!C36="","",Data!N36)
+Anneal!A65	formula	=IF(Data!C37="","","□")
+Anneal!B65	formula	=IF(Data!C37="","",Data!C37)
+Anneal!C65	formula	=IF(Data!C37="","",Data!G37)
+Anneal!D65	formula	=IF(Data!C37="","",Data!M37)
+Anneal!E65	formula	=IF(Data!C37="","",Data!N37)
+Anneal!A66	formula	=IF(Data!C38="","","□")
+Anneal!B66	formula	=IF(Data!C38="","",Data!C38)
+Anneal!C66	formula	=IF(Data!C38="","",Data!G38)
+Anneal!D66	formula	=IF(Data!C38="","",Data!M38)
+Anneal!E66	formula	=IF(Data!C38="","",Data!N38)
+Anneal!A67	formula	=IF(Data!C39="","","□")
+Anneal!B67	formula	=IF(Data!C39="","",Data!C39)
+Anneal!C67	formula	=IF(Data!C39="","",Data!G39)
+Anneal!D67	formula	=IF(Data!C39="","",Data!M39)
+Anneal!E67	formula	=IF(Data!C39="","",Data!N39)
+Anneal!A68	formula	=IF(Data!C40="","","□")
+Anneal!B68	formula	=IF(Data!C40="","",Data!C40)
+Anneal!C68	formula	=IF(Data!C40="","",Data!G40)
+Anneal!D68	formula	=IF(Data!C40="","",Data!M40)
+Anneal!E68	formula	=IF(Data!C40="","",Data!N40)
+Anneal!A69	formula	=IF(Data!C41="","","□")
+Anneal!B69	formula	=IF(Data!C41="","",Data!C41)
+Anneal!C69	formula	=IF(Data!C41="","",Data!G41)
+Anneal!D69	formula	=IF(Data!C41="","",Data!M41)
+Anneal!E69	formula	=IF(Data!C41="","",Data!N41)
+Anneal!A70	formula	=IF(Data!C42="","","□")
+Anneal!B70	formula	=IF(Data!C42="","",Data!C42)
+Anneal!C70	formula	=IF(Data!C42="","",Data!G42)
+Anneal!D70	formula	=IF(Data!C42="","",Data!M42)
+Anneal!E70	formula	=IF(Data!C42="","",Data!N42)
+Anneal!A71	formula	=IF(Data!C43="","","□")
+Anneal!B71	formula	=IF(Data!C43="","",Data!C43)
+Anneal!C71	formula	=IF(Data!C43="","",Data!G43)
+Anneal!D71	formula	=IF(Data!C43="","",Data!M43)
+Anneal!E71	formula	=IF(Data!C43="","",Data!N43)
+Anneal!A72	formula	=IF(Data!C44="","","□")
+Anneal!B72	formula	=IF(Data!C44="","",Data!C44)
+Anneal!C72	formula	=IF(Data!C44="","",Data!G44)
+Anneal!D72	formula	=IF(Data!C44="","",Data!M44)
+Anneal!E72	formula	=IF(Data!C44="","",Data!N44)
+Anneal!A73	formula	=IF(Data!C45="","","□")
+Anneal!B73	formula	=IF(Data!C45="","",Data!C45)
+Anneal!C73	formula	=IF(Data!C45="","",Data!G45)
+Anneal!D73	formula	=IF(Data!C45="","",Data!M45)
+Anneal!E73	formula	=IF(Data!C45="","",Data!N45)
+Anneal!A74	formula	=IF(Data!C46="","","□")
+Anneal!B74	formula	=IF(Data!C46="","",Data!C46)
+Anneal!C74	formula	=IF(Data!C46="","",Data!G46)
+Anneal!D74	formula	=IF(Data!C46="","",Data!M46)
+Anneal!E74	formula	=IF(Data!C46="","",Data!N46)
+Anneal!A75	formula	=IF(Data!C47="","","□")
+Anneal!B75	formula	=IF(Data!C47="","",Data!C47)
+Anneal!C75	formula	=IF(Data!C47="","",Data!G47)
+Anneal!D75	formula	=IF(Data!C47="","",Data!M47)
+Anneal!E75	formula	=IF(Data!C47="","",Data!N47)
+Anneal!A76	formula	=IF(Data!C48="","","□")
+Anneal!B76	formula	=IF(Data!C48="","",Data!C48)
+Anneal!C76	formula	=IF(Data!C48="","",Data!G48)
+Anneal!D76	formula	=IF(Data!C48="","",Data!M48)
+Anneal!E76	formula	=IF(Data!C48="","",Data!N48)
+Anneal!A77	formula	=IF(Data!C49="","","□")
+Anneal!B77	formula	=IF(Data!C49="","",Data!C49)
+Anneal!C77	formula	=IF(Data!C49="","",Data!G49)
+Anneal!D77	formula	=IF(Data!C49="","",Data!M49)
+Anneal!E77	formula	=IF(Data!C49="","",Data!N49)
+GGA!A1	formula	=TODAY()
+GGA!A1	numfmt	yyyy/mm/dd
+GGA!C1	value	Cloning with Golden-gate assembly
+GGA!A3	value	2. Golden-gate assembly
+GGA!A4	value	□
+GGA!B4	value	Thaw the oligo mix (stored at -30°C), the plasmid and T4 DNA Ligase Reaction Buffer at room temperature
+GGA!A5	value	□
+GGA!B5	value	Dilute the oligo mix 200-fold with water (final 50 nM): 1 uL oligo mix + 199 uL milliQ
+GGA!B6	value	For BsaI and BsmBI see 2-1; for the others see 2-2
+GGA!B8	value	Samples
+GGA!C8	formula	=C9+C10
+GGA!D8	value	samples
+GGA!B9	value	of which 2-1 (BsaI / BsmBI)
+GGA!C9	formula	=COUNTIF($F$44:$F$91,"2-1")
+GGA!D9	value	samples
+GGA!B10	value	of which 2-2 (others)
+GGA!C10	formula	=COUNTIF($F$44:$F$91,"2-2")
+GGA!D10	value	samples
+GGA!B11	value	Total volume per reaction
+GGA!C11	value	6
+GGA!C11	numfmt	0.0
+GGA!D11	value	uL
+GGA!B12	value	Backbone plasmid
+GGA!C12	value	0.4
+GGA!C12	numfmt	0.00
+GGA!D12	value	uL/sample
+GGA!E12	value	No concentration measurement needed (fixed value)
+GGA!B14	value	• 2-1. BsaI ligation mix preparation (NEBridge® Golden Gate Enzyme Mix (BsaI-HFv2), E1601, NEB)
+GGA!B14	comment	The volumes are for the NEBridge kit named here. For another kit, change the reagent rows and volumes.
+GGA!D15	value	Mix tubes
+GGA!E15	formula	=IF($C$9=0,0,$C$9+2)
+GGA!E15	numfmt	0
+GGA!F15	value	tubes (samples + 2)
+GGA!B16	value	Reagent
+GGA!C16	value	Final
+GGA!D16	value	1 sample (uL)
+GGA!E16	value	Mix (uL)
+GGA!F16	value	Notes
+GGA!A17	value	□
+GGA!B17	value	milliQ
+GGA!D17	formula	=$C$11-D18-D19-D21-D22
+GGA!D17	numfmt	0.00
+GGA!E17	formula	=D17*$E$15
+GGA!E17	numfmt	0.0
+GGA!A18	value	□
+GGA!B18	value	T4 DNA Ligase Reaction Buffer
+GGA!C18	value	1x
+GGA!D18	value	0.6
+GGA!D18	numfmt	0.00
+GGA!E18	formula	=D18*$E$15
+GGA!E18	numfmt	0.0
+GGA!A19	value	□
+GGA!B19	value	NEBridge Golden Gate Enzyme Mix (BsaI-HFv2)
+GGA!D19	value	0.3
+GGA!D19	numfmt	0.00
+GGA!E19	formula	=D19*$E$15
+GGA!E19	numfmt	0.0
+GGA!B20	value	Master mix subtotal
+GGA!D20	formula	=SUM(D17:D19)
+GGA!D20	numfmt	0.00
+GGA!E20	formula	=SUM(E17:E19)
+GGA!E20	numfmt	0.0
+GGA!A21	value	□
+GGA!B21	value	Backbone plasmid
+GGA!C21	value	0.05 pmol
+GGA!D21	formula	=$C$12
+GGA!D21	numfmt	0.00
+GGA!F21	value	Add to each tube individually
+GGA!A22	value	□
+GGA!B22	value	50 nM Oligo mix
+GGA!C22	value	0.05 pmol
+GGA!D22	value	0.6
+GGA!D22	numfmt	0.00
+GGA!F22	value	Add to each tube individually
+GGA!B23	value	Total
+GGA!D23	formula	=D20+SUM(D21:D22)
+GGA!D23	numfmt	0.00
+GGA!F23	value	uL
+GGA!B25	value	• 2-2. NEBridge® Ligase Master Mix preparation (M1100, NEB)
+GGA!B25	comment	The volumes are for the NEBridge kit named here. For another kit, change the reagent rows and volumes.
+GGA!D26	value	Mix tubes
+GGA!E26	formula	=IF($C$10=0,0,$C$10+2)
+GGA!E26	numfmt	0
+GGA!F26	value	tubes (samples + 2)
+GGA!B27	value	Reagent
+GGA!C27	value	Final
+GGA!D27	value	1 sample (uL)
+GGA!E27	value	Mix (uL)
+GGA!F27	value	Notes
+GGA!A28	value	□
+GGA!B28	value	milliQ
+GGA!D28	formula	=$C$11-D29-D30-D32-D33
+GGA!D28	numfmt	0.00
+GGA!E28	formula	=D28*$E$26
+GGA!E28	numfmt	0.0
+GGA!A29	value	□
+GGA!B29	value	NEBridge Ligase Master Mix
+GGA!C29	value	1x
+GGA!D29	value	2
+GGA!D29	numfmt	0.00
+GGA!E29	formula	=D29*$E$26
+GGA!E29	numfmt	0.0
+GGA!A30	value	□
+GGA!B30	value	Type IIS RE
+GGA!D30	value	0.4
+GGA!D30	numfmt	0.00
+GGA!E30	formula	=D30*$E$26
+GGA!E30	numfmt	0.0
+GGA!F30	formula	=IFERROR(INDEX($E$44:$E$91,MATCH("2-2",$F$44:$F$91,0)),"")
+GGA!B31	value	Master mix subtotal
+GGA!D31	formula	=SUM(D28:D30)
+GGA!D31	numfmt	0.00
+GGA!E31	formula	=SUM(E28:E30)
+GGA!E31	numfmt	0.0
+GGA!A32	value	□
+GGA!B32	value	Backbone plasmid
+GGA!C32	value	0.05 pmol
+GGA!D32	formula	=$C$12
+GGA!D32	numfmt	0.00
+GGA!F32	value	Add to each tube individually
+GGA!A33	value	□
+GGA!B33	value	50 nM Oligo mix
+GGA!C33	value	0.05 pmol
+GGA!D33	value	0.4
+GGA!D33	numfmt	0.00
+GGA!F33	value	Add to each tube individually
+GGA!B34	value	Total
+GGA!D34	formula	=D31+SUM(D32:D33)
+GGA!D34	numfmt	0.00
+GGA!F34	value	uL
+GGA!B35	value	For PaqCI, add 0.2 uL/sample of PaqCI activator
+GGA!B36	formula	=IF($C$10=0,"",IF(COUNTIFS($F$44:$F$91,"2-2",$E$44:$E$91,$F$30)=$C$10,"","Note: there are several Type IIS REs in 2-2. Split the mix for each enzyme."))
+GGA!A38	value	□
+GGA!B38	value	Mix well by vortexing, then spin down
+GGA!A39	value	□
+GGA!B39	value	Run the following reaction in a thermal cycler: 37°C 30:00  →  60°C 5:00
+GGA!A40	value	□
+GGA!B40	value	Pre-warm the required number of LB+Amp plates (4-section plates can be used)
+GGA!C40	formula	=ROUNDUP($C$8/4,0)
+GGA!C40	numfmt	0
+GGA!D40	value	plates
+GGA!B41	value	(checkpoint) Can be stored at -30°C
+GGA!B42	value	Addition per sample
+GGA!B43	value	Sub. No.
+GGA!C43	value	Plasmid name
+GGA!D43	value	Backbone plasmid
+GGA!E43	value	Type IIS RE
+GGA!F43	value	mix
+GGA!G43	value	Oligo mix
+GGA!A44	formula	=IF(Data!C2="","","□")
+GGA!B44	formula	=IF(Data!C2="","",Data!C2)
+GGA!C44	formula	=IF(Data!C2="","",Data!G2)
+GGA!D44	formula	=IF(Data!C2="","",Data!J2)
+GGA!E44	formula	=IF(Data!C2="","",Data!H2)
+GGA!F44	formula	=IF(Data!C2="","",IF(OR(LEFT(Data!H2,4)="BsaI",LEFT(Data!H2,5)="BsmBI"),"2-1","2-2"))
+GGA!G44	formula	=IF(Data!C2="","",Data!M2&" / "&Data!N2)
+GGA!A45	formula	=IF(Data!C3="","","□")
+GGA!B45	formula	=IF(Data!C3="","",Data!C3)
+GGA!C45	formula	=IF(Data!C3="","",Data!G3)
+GGA!D45	formula	=IF(Data!C3="","",Data!J3)
+GGA!E45	formula	=IF(Data!C3="","",Data!H3)
+GGA!F45	formula	=IF(Data!C3="","",IF(OR(LEFT(Data!H3,4)="BsaI",LEFT(Data!H3,5)="BsmBI"),"2-1","2-2"))
+GGA!G45	formula	=IF(Data!C3="","",Data!M3&" / "&Data!N3)
+GGA!A46	formula	=IF(Data!C4="","","□")
+GGA!B46	formula	=IF(Data!C4="","",Data!C4)
+GGA!C46	formula	=IF(Data!C4="","",Data!G4)
+GGA!D46	formula	=IF(Data!C4="","",Data!J4)
+GGA!E46	formula	=IF(Data!C4="","",Data!H4)
+GGA!F46	formula	=IF(Data!C4="","",IF(OR(LEFT(Data!H4,4)="BsaI",LEFT(Data!H4,5)="BsmBI"),"2-1","2-2"))
+GGA!G46	formula	=IF(Data!C4="","",Data!M4&" / "&Data!N4)
+GGA!A47	formula	=IF(Data!C5="","","□")
+GGA!B47	formula	=IF(Data!C5="","",Data!C5)
+GGA!C47	formula	=IF(Data!C5="","",Data!G5)
+GGA!D47	formula	=IF(Data!C5="","",Data!J5)
+GGA!E47	formula	=IF(Data!C5="","",Data!H5)
+GGA!F47	formula	=IF(Data!C5="","",IF(OR(LEFT(Data!H5,4)="BsaI",LEFT(Data!H5,5)="BsmBI"),"2-1","2-2"))
+GGA!G47	formula	=IF(Data!C5="","",Data!M5&" / "&Data!N5)
+GGA!A48	formula	=IF(Data!C6="","","□")
+GGA!B48	formula	=IF(Data!C6="","",Data!C6)
+GGA!C48	formula	=IF(Data!C6="","",Data!G6)
+GGA!D48	formula	=IF(Data!C6="","",Data!J6)
+GGA!E48	formula	=IF(Data!C6="","",Data!H6)
+GGA!F48	formula	=IF(Data!C6="","",IF(OR(LEFT(Data!H6,4)="BsaI",LEFT(Data!H6,5)="BsmBI"),"2-1","2-2"))
+GGA!G48	formula	=IF(Data!C6="","",Data!M6&" / "&Data!N6)
+GGA!A49	formula	=IF(Data!C7="","","□")
+GGA!B49	formula	=IF(Data!C7="","",Data!C7)
+GGA!C49	formula	=IF(Data!C7="","",Data!G7)
+GGA!D49	formula	=IF(Data!C7="","",Data!J7)
+GGA!E49	formula	=IF(Data!C7="","",Data!H7)
+GGA!F49	formula	=IF(Data!C7="","",IF(OR(LEFT(Data!H7,4)="BsaI",LEFT(Data!H7,5)="BsmBI"),"2-1","2-2"))
+GGA!G49	formula	=IF(Data!C7="","",Data!M7&" / "&Data!N7)
+GGA!A50	formula	=IF(Data!C8="","","□")
+GGA!B50	formula	=IF(Data!C8="","",Data!C8)
+GGA!C50	formula	=IF(Data!C8="","",Data!G8)
+GGA!D50	formula	=IF(Data!C8="","",Data!J8)
+GGA!E50	formula	=IF(Data!C8="","",Data!H8)
+GGA!F50	formula	=IF(Data!C8="","",IF(OR(LEFT(Data!H8,4)="BsaI",LEFT(Data!H8,5)="BsmBI"),"2-1","2-2"))
+GGA!G50	formula	=IF(Data!C8="","",Data!M8&" / "&Data!N8)
+GGA!A51	formula	=IF(Data!C9="","","□")
+GGA!B51	formula	=IF(Data!C9="","",Data!C9)
+GGA!C51	formula	=IF(Data!C9="","",Data!G9)
+GGA!D51	formula	=IF(Data!C9="","",Data!J9)
+GGA!E51	formula	=IF(Data!C9="","",Data!H9)
+GGA!F51	formula	=IF(Data!C9="","",IF(OR(LEFT(Data!H9,4)="BsaI",LEFT(Data!H9,5)="BsmBI"),"2-1","2-2"))
+GGA!G51	formula	=IF(Data!C9="","",Data!M9&" / "&Data!N9)
+GGA!A52	formula	=IF(Data!C10="","","□")
+GGA!B52	formula	=IF(Data!C10="","",Data!C10)
+GGA!C52	formula	=IF(Data!C10="","",Data!G10)
+GGA!D52	formula	=IF(Data!C10="","",Data!J10)
+GGA!E52	formula	=IF(Data!C10="","",Data!H10)
+GGA!F52	formula	=IF(Data!C10="","",IF(OR(LEFT(Data!H10,4)="BsaI",LEFT(Data!H10,5)="BsmBI"),"2-1","2-2"))
+GGA!G52	formula	=IF(Data!C10="","",Data!M10&" / "&Data!N10)
+GGA!A53	formula	=IF(Data!C11="","","□")
+GGA!B53	formula	=IF(Data!C11="","",Data!C11)
+GGA!C53	formula	=IF(Data!C11="","",Data!G11)
+GGA!D53	formula	=IF(Data!C11="","",Data!J11)
+GGA!E53	formula	=IF(Data!C11="","",Data!H11)
+GGA!F53	formula	=IF(Data!C11="","",IF(OR(LEFT(Data!H11,4)="BsaI",LEFT(Data!H11,5)="BsmBI"),"2-1","2-2"))
+GGA!G53	formula	=IF(Data!C11="","",Data!M11&" / "&Data!N11)
+GGA!A54	formula	=IF(Data!C12="","","□")
+GGA!B54	formula	=IF(Data!C12="","",Data!C12)
+GGA!C54	formula	=IF(Data!C12="","",Data!G12)
+GGA!D54	formula	=IF(Data!C12="","",Data!J12)
+GGA!E54	formula	=IF(Data!C12="","",Data!H12)
+GGA!F54	formula	=IF(Data!C12="","",IF(OR(LEFT(Data!H12,4)="BsaI",LEFT(Data!H12,5)="BsmBI"),"2-1","2-2"))
+GGA!G54	formula	=IF(Data!C12="","",Data!M12&" / "&Data!N12)
+GGA!A55	formula	=IF(Data!C13="","","□")
+GGA!B55	formula	=IF(Data!C13="","",Data!C13)
+GGA!C55	formula	=IF(Data!C13="","",Data!G13)
+GGA!D55	formula	=IF(Data!C13="","",Data!J13)
+GGA!E55	formula	=IF(Data!C13="","",Data!H13)
+GGA!F55	formula	=IF(Data!C13="","",IF(OR(LEFT(Data!H13,4)="BsaI",LEFT(Data!H13,5)="BsmBI"),"2-1","2-2"))
+GGA!G55	formula	=IF(Data!C13="","",Data!M13&" / "&Data!N13)
+GGA!A56	formula	=IF(Data!C14="","","□")
+GGA!B56	formula	=IF(Data!C14="","",Data!C14)
+GGA!C56	formula	=IF(Data!C14="","",Data!G14)
+GGA!D56	formula	=IF(Data!C14="","",Data!J14)
+GGA!E56	formula	=IF(Data!C14="","",Data!H14)
+GGA!F56	formula	=IF(Data!C14="","",IF(OR(LEFT(Data!H14,4)="BsaI",LEFT(Data!H14,5)="BsmBI"),"2-1","2-2"))
+GGA!G56	formula	=IF(Data!C14="","",Data!M14&" / "&Data!N14)
+GGA!A57	formula	=IF(Data!C15="","","□")
+GGA!B57	formula	=IF(Data!C15="","",Data!C15)
+GGA!C57	formula	=IF(Data!C15="","",Data!G15)
+GGA!D57	formula	=IF(Data!C15="","",Data!J15)
+GGA!E57	formula	=IF(Data!C15="","",Data!H15)
+GGA!F57	formula	=IF(Data!C15="","",IF(OR(LEFT(Data!H15,4)="BsaI",LEFT(Data!H15,5)="BsmBI"),"2-1","2-2"))
+GGA!G57	formula	=IF(Data!C15="","",Data!M15&" / "&Data!N15)
+GGA!A58	formula	=IF(Data!C16="","","□")
+GGA!B58	formula	=IF(Data!C16="","",Data!C16)
+GGA!C58	formula	=IF(Data!C16="","",Data!G16)
+GGA!D58	formula	=IF(Data!C16="","",Data!J16)
+GGA!E58	formula	=IF(Data!C16="","",Data!H16)
+GGA!F58	formula	=IF(Data!C16="","",IF(OR(LEFT(Data!H16,4)="BsaI",LEFT(Data!H16,5)="BsmBI"),"2-1","2-2"))
+GGA!G58	formula	=IF(Data!C16="","",Data!M16&" / "&Data!N16)
+GGA!A59	formula	=IF(Data!C17="","","□")
+GGA!B59	formula	=IF(Data!C17="","",Data!C17)
+GGA!C59	formula	=IF(Data!C17="","",Data!G17)
+GGA!D59	formula	=IF(Data!C17="","",Data!J17)
+GGA!E59	formula	=IF(Data!C17="","",Data!H17)
+GGA!F59	formula	=IF(Data!C17="","",IF(OR(LEFT(Data!H17,4)="BsaI",LEFT(Data!H17,5)="BsmBI"),"2-1","2-2"))
+GGA!G59	formula	=IF(Data!C17="","",Data!M17&" / "&Data!N17)
+GGA!A60	formula	=IF(Data!C18="","","□")
+GGA!B60	formula	=IF(Data!C18="","",Data!C18)
+GGA!C60	formula	=IF(Data!C18="","",Data!G18)
+GGA!D60	formula	=IF(Data!C18="","",Data!J18)
+GGA!E60	formula	=IF(Data!C18="","",Data!H18)
+GGA!F60	formula	=IF(Data!C18="","",IF(OR(LEFT(Data!H18,4)="BsaI",LEFT(Data!H18,5)="BsmBI"),"2-1","2-2"))
+GGA!G60	formula	=IF(Data!C18="","",Data!M18&" / "&Data!N18)
+GGA!A61	formula	=IF(Data!C19="","","□")
+GGA!B61	formula	=IF(Data!C19="","",Data!C19)
+GGA!C61	formula	=IF(Data!C19="","",Data!G19)
+GGA!D61	formula	=IF(Data!C19="","",Data!J19)
+GGA!E61	formula	=IF(Data!C19="","",Data!H19)
+GGA!F61	formula	=IF(Data!C19="","",IF(OR(LEFT(Data!H19,4)="BsaI",LEFT(Data!H19,5)="BsmBI"),"2-1","2-2"))
+GGA!G61	formula	=IF(Data!C19="","",Data!M19&" / "&Data!N19)
+GGA!A62	formula	=IF(Data!C20="","","□")
+GGA!B62	formula	=IF(Data!C20="","",Data!C20)
+GGA!C62	formula	=IF(Data!C20="","",Data!G20)
+GGA!D62	formula	=IF(Data!C20="","",Data!J20)
+GGA!E62	formula	=IF(Data!C20="","",Data!H20)
+GGA!F62	formula	=IF(Data!C20="","",IF(OR(LEFT(Data!H20,4)="BsaI",LEFT(Data!H20,5)="BsmBI"),"2-1","2-2"))
+GGA!G62	formula	=IF(Data!C20="","",Data!M20&" / "&Data!N20)
+GGA!A63	formula	=IF(Data!C21="","","□")
+GGA!B63	formula	=IF(Data!C21="","",Data!C21)
+GGA!C63	formula	=IF(Data!C21="","",Data!G21)
+GGA!D63	formula	=IF(Data!C21="","",Data!J21)
+GGA!E63	formula	=IF(Data!C21="","",Data!H21)
+GGA!F63	formula	=IF(Data!C21="","",IF(OR(LEFT(Data!H21,4)="BsaI",LEFT(Data!H21,5)="BsmBI"),"2-1","2-2"))
+GGA!G63	formula	=IF(Data!C21="","",Data!M21&" / "&Data!N21)
+GGA!A64	formula	=IF(Data!C22="","","□")
+GGA!B64	formula	=IF(Data!C22="","",Data!C22)
+GGA!C64	formula	=IF(Data!C22="","",Data!G22)
+GGA!D64	formula	=IF(Data!C22="","",Data!J22)
+GGA!E64	formula	=IF(Data!C22="","",Data!H22)
+GGA!F64	formula	=IF(Data!C22="","",IF(OR(LEFT(Data!H22,4)="BsaI",LEFT(Data!H22,5)="BsmBI"),"2-1","2-2"))
+GGA!G64	formula	=IF(Data!C22="","",Data!M22&" / "&Data!N22)
+GGA!A65	formula	=IF(Data!C23="","","□")
+GGA!B65	formula	=IF(Data!C23="","",Data!C23)
+GGA!C65	formula	=IF(Data!C23="","",Data!G23)
+GGA!D65	formula	=IF(Data!C23="","",Data!J23)
+GGA!E65	formula	=IF(Data!C23="","",Data!H23)
+GGA!F65	formula	=IF(Data!C23="","",IF(OR(LEFT(Data!H23,4)="BsaI",LEFT(Data!H23,5)="BsmBI"),"2-1","2-2"))
+GGA!G65	formula	=IF(Data!C23="","",Data!M23&" / "&Data!N23)
+GGA!A66	formula	=IF(Data!C24="","","□")
+GGA!B66	formula	=IF(Data!C24="","",Data!C24)
+GGA!C66	formula	=IF(Data!C24="","",Data!G24)
+GGA!D66	formula	=IF(Data!C24="","",Data!J24)
+GGA!E66	formula	=IF(Data!C24="","",Data!H24)
+GGA!F66	formula	=IF(Data!C24="","",IF(OR(LEFT(Data!H24,4)="BsaI",LEFT(Data!H24,5)="BsmBI"),"2-1","2-2"))
+GGA!G66	formula	=IF(Data!C24="","",Data!M24&" / "&Data!N24)
+GGA!A67	formula	=IF(Data!C25="","","□")
+GGA!B67	formula	=IF(Data!C25="","",Data!C25)
+GGA!C67	formula	=IF(Data!C25="","",Data!G25)
+GGA!D67	formula	=IF(Data!C25="","",Data!J25)
+GGA!E67	formula	=IF(Data!C25="","",Data!H25)
+GGA!F67	formula	=IF(Data!C25="","",IF(OR(LEFT(Data!H25,4)="BsaI",LEFT(Data!H25,5)="BsmBI"),"2-1","2-2"))
+GGA!G67	formula	=IF(Data!C25="","",Data!M25&" / "&Data!N25)
+GGA!A68	formula	=IF(Data!C26="","","□")
+GGA!B68	formula	=IF(Data!C26="","",Data!C26)
+GGA!C68	formula	=IF(Data!C26="","",Data!G26)
+GGA!D68	formula	=IF(Data!C26="","",Data!J26)
+GGA!E68	formula	=IF(Data!C26="","",Data!H26)
+GGA!F68	formula	=IF(Data!C26="","",IF(OR(LEFT(Data!H26,4)="BsaI",LEFT(Data!H26,5)="BsmBI"),"2-1","2-2"))
+GGA!G68	formula	=IF(Data!C26="","",Data!M26&" / "&Data!N26)
+GGA!A69	formula	=IF(Data!C27="","","□")
+GGA!B69	formula	=IF(Data!C27="","",Data!C27)
+GGA!C69	formula	=IF(Data!C27="","",Data!G27)
+GGA!D69	formula	=IF(Data!C27="","",Data!J27)
+GGA!E69	formula	=IF(Data!C27="","",Data!H27)
+GGA!F69	formula	=IF(Data!C27="","",IF(OR(LEFT(Data!H27,4)="BsaI",LEFT(Data!H27,5)="BsmBI"),"2-1","2-2"))
+GGA!G69	formula	=IF(Data!C27="","",Data!M27&" / "&Data!N27)
+GGA!A70	formula	=IF(Data!C28="","","□")
+GGA!B70	formula	=IF(Data!C28="","",Data!C28)
+GGA!C70	formula	=IF(Data!C28="","",Data!G28)
+GGA!D70	formula	=IF(Data!C28="","",Data!J28)
+GGA!E70	formula	=IF(Data!C28="","",Data!H28)
+GGA!F70	formula	=IF(Data!C28="","",IF(OR(LEFT(Data!H28,4)="BsaI",LEFT(Data!H28,5)="BsmBI"),"2-1","2-2"))
+GGA!G70	formula	=IF(Data!C28="","",Data!M28&" / "&Data!N28)
+GGA!A71	formula	=IF(Data!C29="","","□")
+GGA!B71	formula	=IF(Data!C29="","",Data!C29)
+GGA!C71	formula	=IF(Data!C29="","",Data!G29)
+GGA!D71	formula	=IF(Data!C29="","",Data!J29)
+GGA!E71	formula	=IF(Data!C29="","",Data!H29)
+GGA!F71	formula	=IF(Data!C29="","",IF(OR(LEFT(Data!H29,4)="BsaI",LEFT(Data!H29,5)="BsmBI"),"2-1","2-2"))
+GGA!G71	formula	=IF(Data!C29="","",Data!M29&" / "&Data!N29)
+GGA!A72	formula	=IF(Data!C30="","","□")
+GGA!B72	formula	=IF(Data!C30="","",Data!C30)
+GGA!C72	formula	=IF(Data!C30="","",Data!G30)
+GGA!D72	formula	=IF(Data!C30="","",Data!J30)
+GGA!E72	formula	=IF(Data!C30="","",Data!H30)
+GGA!F72	formula	=IF(Data!C30="","",IF(OR(LEFT(Data!H30,4)="BsaI",LEFT(Data!H30,5)="BsmBI"),"2-1","2-2"))
+GGA!G72	formula	=IF(Data!C30="","",Data!M30&" / "&Data!N30)
+GGA!A73	formula	=IF(Data!C31="","","□")
+GGA!B73	formula	=IF(Data!C31="","",Data!C31)
+GGA!C73	formula	=IF(Data!C31="","",Data!G31)
+GGA!D73	formula	=IF(Data!C31="","",Data!J31)
+GGA!E73	formula	=IF(Data!C31="","",Data!H31)
+GGA!F73	formula	=IF(Data!C31="","",IF(OR(LEFT(Data!H31,4)="BsaI",LEFT(Data!H31,5)="BsmBI"),"2-1","2-2"))
+GGA!G73	formula	=IF(Data!C31="","",Data!M31&" / "&Data!N31)
+GGA!A74	formula	=IF(Data!C32="","","□")
+GGA!B74	formula	=IF(Data!C32="","",Data!C32)
+GGA!C74	formula	=IF(Data!C32="","",Data!G32)
+GGA!D74	formula	=IF(Data!C32="","",Data!J32)
+GGA!E74	formula	=IF(Data!C32="","",Data!H32)
+GGA!F74	formula	=IF(Data!C32="","",IF(OR(LEFT(Data!H32,4)="BsaI",LEFT(Data!H32,5)="BsmBI"),"2-1","2-2"))
+GGA!G74	formula	=IF(Data!C32="","",Data!M32&" / "&Data!N32)
+GGA!A75	formula	=IF(Data!C33="","","□")
+GGA!B75	formula	=IF(Data!C33="","",Data!C33)
+GGA!C75	formula	=IF(Data!C33="","",Data!G33)
+GGA!D75	formula	=IF(Data!C33="","",Data!J33)
+GGA!E75	formula	=IF(Data!C33="","",Data!H33)
+GGA!F75	formula	=IF(Data!C33="","",IF(OR(LEFT(Data!H33,4)="BsaI",LEFT(Data!H33,5)="BsmBI"),"2-1","2-2"))
+GGA!G75	formula	=IF(Data!C33="","",Data!M33&" / "&Data!N33)
+GGA!A76	formula	=IF(Data!C34="","","□")
+GGA!B76	formula	=IF(Data!C34="","",Data!C34)
+GGA!C76	formula	=IF(Data!C34="","",Data!G34)
+GGA!D76	formula	=IF(Data!C34="","",Data!J34)
+GGA!E76	formula	=IF(Data!C34="","",Data!H34)
+GGA!F76	formula	=IF(Data!C34="","",IF(OR(LEFT(Data!H34,4)="BsaI",LEFT(Data!H34,5)="BsmBI"),"2-1","2-2"))
+GGA!G76	formula	=IF(Data!C34="","",Data!M34&" / "&Data!N34)
+GGA!A77	formula	=IF(Data!C35="","","□")
+GGA!B77	formula	=IF(Data!C35="","",Data!C35)
+GGA!C77	formula	=IF(Data!C35="","",Data!G35)
+GGA!D77	formula	=IF(Data!C35="","",Data!J35)
+GGA!E77	formula	=IF(Data!C35="","",Data!H35)
+GGA!F77	formula	=IF(Data!C35="","",IF(OR(LEFT(Data!H35,4)="BsaI",LEFT(Data!H35,5)="BsmBI"),"2-1","2-2"))
+GGA!G77	formula	=IF(Data!C35="","",Data!M35&" / "&Data!N35)
+GGA!A78	formula	=IF(Data!C36="","","□")
+GGA!B78	formula	=IF(Data!C36="","",Data!C36)
+GGA!C78	formula	=IF(Data!C36="","",Data!G36)
+GGA!D78	formula	=IF(Data!C36="","",Data!J36)
+GGA!E78	formula	=IF(Data!C36="","",Data!H36)
+GGA!F78	formula	=IF(Data!C36="","",IF(OR(LEFT(Data!H36,4)="BsaI",LEFT(Data!H36,5)="BsmBI"),"2-1","2-2"))
+GGA!G78	formula	=IF(Data!C36="","",Data!M36&" / "&Data!N36)
+GGA!A79	formula	=IF(Data!C37="","","□")
+GGA!B79	formula	=IF(Data!C37="","",Data!C37)
+GGA!C79	formula	=IF(Data!C37="","",Data!G37)
+GGA!D79	formula	=IF(Data!C37="","",Data!J37)
+GGA!E79	formula	=IF(Data!C37="","",Data!H37)
+GGA!F79	formula	=IF(Data!C37="","",IF(OR(LEFT(Data!H37,4)="BsaI",LEFT(Data!H37,5)="BsmBI"),"2-1","2-2"))
+GGA!G79	formula	=IF(Data!C37="","",Data!M37&" / "&Data!N37)
+GGA!A80	formula	=IF(Data!C38="","","□")
+GGA!B80	formula	=IF(Data!C38="","",Data!C38)
+GGA!C80	formula	=IF(Data!C38="","",Data!G38)
+GGA!D80	formula	=IF(Data!C38="","",Data!J38)
+GGA!E80	formula	=IF(Data!C38="","",Data!H38)
+GGA!F80	formula	=IF(Data!C38="","",IF(OR(LEFT(Data!H38,4)="BsaI",LEFT(Data!H38,5)="BsmBI"),"2-1","2-2"))
+GGA!G80	formula	=IF(Data!C38="","",Data!M38&" / "&Data!N38)
+GGA!A81	formula	=IF(Data!C39="","","□")
+GGA!B81	formula	=IF(Data!C39="","",Data!C39)
+GGA!C81	formula	=IF(Data!C39="","",Data!G39)
+GGA!D81	formula	=IF(Data!C39="","",Data!J39)
+GGA!E81	formula	=IF(Data!C39="","",Data!H39)
+GGA!F81	formula	=IF(Data!C39="","",IF(OR(LEFT(Data!H39,4)="BsaI",LEFT(Data!H39,5)="BsmBI"),"2-1","2-2"))
+GGA!G81	formula	=IF(Data!C39="","",Data!M39&" / "&Data!N39)
+GGA!A82	formula	=IF(Data!C40="","","□")
+GGA!B82	formula	=IF(Data!C40="","",Data!C40)
+GGA!C82	formula	=IF(Data!C40="","",Data!G40)
+GGA!D82	formula	=IF(Data!C40="","",Data!J40)
+GGA!E82	formula	=IF(Data!C40="","",Data!H40)
+GGA!F82	formula	=IF(Data!C40="","",IF(OR(LEFT(Data!H40,4)="BsaI",LEFT(Data!H40,5)="BsmBI"),"2-1","2-2"))
+GGA!G82	formula	=IF(Data!C40="","",Data!M40&" / "&Data!N40)
+GGA!A83	formula	=IF(Data!C41="","","□")
+GGA!B83	formula	=IF(Data!C41="","",Data!C41)
+GGA!C83	formula	=IF(Data!C41="","",Data!G41)
+GGA!D83	formula	=IF(Data!C41="","",Data!J41)
+GGA!E83	formula	=IF(Data!C41="","",Data!H41)
+GGA!F83	formula	=IF(Data!C41="","",IF(OR(LEFT(Data!H41,4)="BsaI",LEFT(Data!H41,5)="BsmBI"),"2-1","2-2"))
+GGA!G83	formula	=IF(Data!C41="","",Data!M41&" / "&Data!N41)
+GGA!A84	formula	=IF(Data!C42="","","□")
+GGA!B84	formula	=IF(Data!C42="","",Data!C42)
+GGA!C84	formula	=IF(Data!C42="","",Data!G42)
+GGA!D84	formula	=IF(Data!C42="","",Data!J42)
+GGA!E84	formula	=IF(Data!C42="","",Data!H42)
+GGA!F84	formula	=IF(Data!C42="","",IF(OR(LEFT(Data!H42,4)="BsaI",LEFT(Data!H42,5)="BsmBI"),"2-1","2-2"))
+GGA!G84	formula	=IF(Data!C42="","",Data!M42&" / "&Data!N42)
+GGA!A85	formula	=IF(Data!C43="","","□")
+GGA!B85	formula	=IF(Data!C43="","",Data!C43)
+GGA!C85	formula	=IF(Data!C43="","",Data!G43)
+GGA!D85	formula	=IF(Data!C43="","",Data!J43)
+GGA!E85	formula	=IF(Data!C43="","",Data!H43)
+GGA!F85	formula	=IF(Data!C43="","",IF(OR(LEFT(Data!H43,4)="BsaI",LEFT(Data!H43,5)="BsmBI"),"2-1","2-2"))
+GGA!G85	formula	=IF(Data!C43="","",Data!M43&" / "&Data!N43)
+GGA!A86	formula	=IF(Data!C44="","","□")
+GGA!B86	formula	=IF(Data!C44="","",Data!C44)
+GGA!C86	formula	=IF(Data!C44="","",Data!G44)
+GGA!D86	formula	=IF(Data!C44="","",Data!J44)
+GGA!E86	formula	=IF(Data!C44="","",Data!H44)
+GGA!F86	formula	=IF(Data!C44="","",IF(OR(LEFT(Data!H44,4)="BsaI",LEFT(Data!H44,5)="BsmBI"),"2-1","2-2"))
+GGA!G86	formula	=IF(Data!C44="","",Data!M44&" / "&Data!N44)
+GGA!A87	formula	=IF(Data!C45="","","□")
+GGA!B87	formula	=IF(Data!C45="","",Data!C45)
+GGA!C87	formula	=IF(Data!C45="","",Data!G45)
+GGA!D87	formula	=IF(Data!C45="","",Data!J45)
+GGA!E87	formula	=IF(Data!C45="","",Data!H45)
+GGA!F87	formula	=IF(Data!C45="","",IF(OR(LEFT(Data!H45,4)="BsaI",LEFT(Data!H45,5)="BsmBI"),"2-1","2-2"))
+GGA!G87	formula	=IF(Data!C45="","",Data!M45&" / "&Data!N45)
+GGA!A88	formula	=IF(Data!C46="","","□")
+GGA!B88	formula	=IF(Data!C46="","",Data!C46)
+GGA!C88	formula	=IF(Data!C46="","",Data!G46)
+GGA!D88	formula	=IF(Data!C46="","",Data!J46)
+GGA!E88	formula	=IF(Data!C46="","",Data!H46)
+GGA!F88	formula	=IF(Data!C46="","",IF(OR(LEFT(Data!H46,4)="BsaI",LEFT(Data!H46,5)="BsmBI"),"2-1","2-2"))
+GGA!G88	formula	=IF(Data!C46="","",Data!M46&" / "&Data!N46)
+GGA!A89	formula	=IF(Data!C47="","","□")
+GGA!B89	formula	=IF(Data!C47="","",Data!C47)
+GGA!C89	formula	=IF(Data!C47="","",Data!G47)
+GGA!D89	formula	=IF(Data!C47="","",Data!J47)
+GGA!E89	formula	=IF(Data!C47="","",Data!H47)
+GGA!F89	formula	=IF(Data!C47="","",IF(OR(LEFT(Data!H47,4)="BsaI",LEFT(Data!H47,5)="BsmBI"),"2-1","2-2"))
+GGA!G89	formula	=IF(Data!C47="","",Data!M47&" / "&Data!N47)
+GGA!A90	formula	=IF(Data!C48="","","□")
+GGA!B90	formula	=IF(Data!C48="","",Data!C48)
+GGA!C90	formula	=IF(Data!C48="","",Data!G48)
+GGA!D90	formula	=IF(Data!C48="","",Data!J48)
+GGA!E90	formula	=IF(Data!C48="","",Data!H48)
+GGA!F90	formula	=IF(Data!C48="","",IF(OR(LEFT(Data!H48,4)="BsaI",LEFT(Data!H48,5)="BsmBI"),"2-1","2-2"))
+GGA!G90	formula	=IF(Data!C48="","",Data!M48&" / "&Data!N48)
+GGA!A91	formula	=IF(Data!C49="","","□")
+GGA!B91	formula	=IF(Data!C49="","",Data!C49)
+GGA!C91	formula	=IF(Data!C49="","",Data!G49)
+GGA!D91	formula	=IF(Data!C49="","",Data!J49)
+GGA!E91	formula	=IF(Data!C49="","",Data!H49)
+GGA!F91	formula	=IF(Data!C49="","",IF(OR(LEFT(Data!H49,4)="BsaI",LEFT(Data!H49,5)="BsmBI"),"2-1","2-2"))
+GGA!G91	formula	=IF(Data!C49="","",Data!M49&" / "&Data!N49)
+TF!A1	formula	=TODAY()
+TF!A1	numfmt	yyyy/mm/dd
+TF!C1	value	Cloning with Golden-gate assembly
+TF!A3	value	3. Transformation
+TF!B5	value	Samples
+TF!C5	formula	=GGA!C8
+TF!D5	value	samples
+TF!B6	value	DH5α competent cells
+TF!B6	comment	25 uL of competent cells per sample is the author's value. Change the 25 in the formula in column C, the text in column E and the instruction line in row 12 to match the cells you use.
+TF!C6	formula	=C5*25
+TF!C6	numfmt	0
+TF!D6	value	uL
+TF!E6	value	25 uL/sample
+TF!B7	value	Recovery medium
+TF!B7	comment	900 uL of medium per sample is the author's value. Change the 900 in the formula in column C, the text in column E and the instruction line in row 18 to match the medium you use.
+TF!C7	formula	=C5*900
+TF!C7	numfmt	0
+TF!D7	value	uL
+TF!E7	value	900 uL/sample
+TF!B8	value	LB+Amp plate
+TF!C8	formula	=ROUNDUP(C5/4,0)
+TF!C8	numfmt	0
+TF!D8	value	plates
+TF!E8	value	4-section plates can be used
+TF!A10	value	□
+TF!B10	value	Take the required number of DH5α competent cells out of the -80°C freezer
+TF!B11	value	Start thawing in your hand while carrying, then thaw completely at room temperature
+TF!A12	value	□
+TF!B12	value	Dispense 25 uL of DH5α per tube and add 2 uL of the ligation mix after the reaction
+TF!A13	value	□
+TF!B13	value	Mix well by vortexing for 1~10 sec
+TF!A14	value	□
+TF!B14	value	0~10 min on ice (optional)
+TF!B15	value	Add the following 2 steps if needed
+TF!A16	value	□
+TF!B16	value	Heat shock: 42°C, 45~90 sec
+TF!A17	value	□
+TF!B17	value	1~5 min on ice (required in this case)
+TF!A18	value	□
+TF!B18	value	Add 900 uL of recovery medium and incubate at 200 rpm, 37°C for 30~60 min
+TF!A19	value	□
+TF!B19	value	Add ~100 uL to a pre-warmed plate and spread it unevenly on purpose
+TF!A20	value	□
+TF!B20	value	37°C, overnight
+TF!B21	value	If more than 2 days pass, run a program of 37°C, 24 hr  →  4°C, hold
+TF!B24	value	Sample list
+TF!B25	value	Sub. No.
+TF!C25	value	Plasmid name
+TF!D25	value	Plate
+TF!E25	value	Colony
+TF!F25	value	Memo
+TF!A26	formula	=IF(Data!C2="","","□")
+TF!B26	formula	=IF(Data!C2="","",Data!C2)
+TF!C26	formula	=IF(Data!C2="","",Data!G2)
+TF!D26	formula	=IF(Data!C2="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A27	formula	=IF(Data!C3="","","□")
+TF!B27	formula	=IF(Data!C3="","",Data!C3)
+TF!C27	formula	=IF(Data!C3="","",Data!G3)
+TF!D27	formula	=IF(Data!C3="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A28	formula	=IF(Data!C4="","","□")
+TF!B28	formula	=IF(Data!C4="","",Data!C4)
+TF!C28	formula	=IF(Data!C4="","",Data!G4)
+TF!D28	formula	=IF(Data!C4="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A29	formula	=IF(Data!C5="","","□")
+TF!B29	formula	=IF(Data!C5="","",Data!C5)
+TF!C29	formula	=IF(Data!C5="","",Data!G5)
+TF!D29	formula	=IF(Data!C5="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A30	formula	=IF(Data!C6="","","□")
+TF!B30	formula	=IF(Data!C6="","",Data!C6)
+TF!C30	formula	=IF(Data!C6="","",Data!G6)
+TF!D30	formula	=IF(Data!C6="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A31	formula	=IF(Data!C7="","","□")
+TF!B31	formula	=IF(Data!C7="","",Data!C7)
+TF!C31	formula	=IF(Data!C7="","",Data!G7)
+TF!D31	formula	=IF(Data!C7="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A32	formula	=IF(Data!C8="","","□")
+TF!B32	formula	=IF(Data!C8="","",Data!C8)
+TF!C32	formula	=IF(Data!C8="","",Data!G8)
+TF!D32	formula	=IF(Data!C8="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A33	formula	=IF(Data!C9="","","□")
+TF!B33	formula	=IF(Data!C9="","",Data!C9)
+TF!C33	formula	=IF(Data!C9="","",Data!G9)
+TF!D33	formula	=IF(Data!C9="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A34	formula	=IF(Data!C10="","","□")
+TF!B34	formula	=IF(Data!C10="","",Data!C10)
+TF!C34	formula	=IF(Data!C10="","",Data!G10)
+TF!D34	formula	=IF(Data!C10="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A35	formula	=IF(Data!C11="","","□")
+TF!B35	formula	=IF(Data!C11="","",Data!C11)
+TF!C35	formula	=IF(Data!C11="","",Data!G11)
+TF!D35	formula	=IF(Data!C11="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A36	formula	=IF(Data!C12="","","□")
+TF!B36	formula	=IF(Data!C12="","",Data!C12)
+TF!C36	formula	=IF(Data!C12="","",Data!G12)
+TF!D36	formula	=IF(Data!C12="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A37	formula	=IF(Data!C13="","","□")
+TF!B37	formula	=IF(Data!C13="","",Data!C13)
+TF!C37	formula	=IF(Data!C13="","",Data!G13)
+TF!D37	formula	=IF(Data!C13="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A38	formula	=IF(Data!C14="","","□")
+TF!B38	formula	=IF(Data!C14="","",Data!C14)
+TF!C38	formula	=IF(Data!C14="","",Data!G14)
+TF!D38	formula	=IF(Data!C14="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A39	formula	=IF(Data!C15="","","□")
+TF!B39	formula	=IF(Data!C15="","",Data!C15)
+TF!C39	formula	=IF(Data!C15="","",Data!G15)
+TF!D39	formula	=IF(Data!C15="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A40	formula	=IF(Data!C16="","","□")
+TF!B40	formula	=IF(Data!C16="","",Data!C16)
+TF!C40	formula	=IF(Data!C16="","",Data!G16)
+TF!D40	formula	=IF(Data!C16="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A41	formula	=IF(Data!C17="","","□")
+TF!B41	formula	=IF(Data!C17="","",Data!C17)
+TF!C41	formula	=IF(Data!C17="","",Data!G17)
+TF!D41	formula	=IF(Data!C17="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A42	formula	=IF(Data!C18="","","□")
+TF!B42	formula	=IF(Data!C18="","",Data!C18)
+TF!C42	formula	=IF(Data!C18="","",Data!G18)
+TF!D42	formula	=IF(Data!C18="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A43	formula	=IF(Data!C19="","","□")
+TF!B43	formula	=IF(Data!C19="","",Data!C19)
+TF!C43	formula	=IF(Data!C19="","",Data!G19)
+TF!D43	formula	=IF(Data!C19="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A44	formula	=IF(Data!C20="","","□")
+TF!B44	formula	=IF(Data!C20="","",Data!C20)
+TF!C44	formula	=IF(Data!C20="","",Data!G20)
+TF!D44	formula	=IF(Data!C20="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A45	formula	=IF(Data!C21="","","□")
+TF!B45	formula	=IF(Data!C21="","",Data!C21)
+TF!C45	formula	=IF(Data!C21="","",Data!G21)
+TF!D45	formula	=IF(Data!C21="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A46	formula	=IF(Data!C22="","","□")
+TF!B46	formula	=IF(Data!C22="","",Data!C22)
+TF!C46	formula	=IF(Data!C22="","",Data!G22)
+TF!D46	formula	=IF(Data!C22="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A47	formula	=IF(Data!C23="","","□")
+TF!B47	formula	=IF(Data!C23="","",Data!C23)
+TF!C47	formula	=IF(Data!C23="","",Data!G23)
+TF!D47	formula	=IF(Data!C23="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A48	formula	=IF(Data!C24="","","□")
+TF!B48	formula	=IF(Data!C24="","",Data!C24)
+TF!C48	formula	=IF(Data!C24="","",Data!G24)
+TF!D48	formula	=IF(Data!C24="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A49	formula	=IF(Data!C25="","","□")
+TF!B49	formula	=IF(Data!C25="","",Data!C25)
+TF!C49	formula	=IF(Data!C25="","",Data!G25)
+TF!D49	formula	=IF(Data!C25="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A50	formula	=IF(Data!C26="","","□")
+TF!B50	formula	=IF(Data!C26="","",Data!C26)
+TF!C50	formula	=IF(Data!C26="","",Data!G26)
+TF!D50	formula	=IF(Data!C26="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A51	formula	=IF(Data!C27="","","□")
+TF!B51	formula	=IF(Data!C27="","",Data!C27)
+TF!C51	formula	=IF(Data!C27="","",Data!G27)
+TF!D51	formula	=IF(Data!C27="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A52	formula	=IF(Data!C28="","","□")
+TF!B52	formula	=IF(Data!C28="","",Data!C28)
+TF!C52	formula	=IF(Data!C28="","",Data!G28)
+TF!D52	formula	=IF(Data!C28="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A53	formula	=IF(Data!C29="","","□")
+TF!B53	formula	=IF(Data!C29="","",Data!C29)
+TF!C53	formula	=IF(Data!C29="","",Data!G29)
+TF!D53	formula	=IF(Data!C29="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A54	formula	=IF(Data!C30="","","□")
+TF!B54	formula	=IF(Data!C30="","",Data!C30)
+TF!C54	formula	=IF(Data!C30="","",Data!G30)
+TF!D54	formula	=IF(Data!C30="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A55	formula	=IF(Data!C31="","","□")
+TF!B55	formula	=IF(Data!C31="","",Data!C31)
+TF!C55	formula	=IF(Data!C31="","",Data!G31)
+TF!D55	formula	=IF(Data!C31="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A56	formula	=IF(Data!C32="","","□")
+TF!B56	formula	=IF(Data!C32="","",Data!C32)
+TF!C56	formula	=IF(Data!C32="","",Data!G32)
+TF!D56	formula	=IF(Data!C32="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A57	formula	=IF(Data!C33="","","□")
+TF!B57	formula	=IF(Data!C33="","",Data!C33)
+TF!C57	formula	=IF(Data!C33="","",Data!G33)
+TF!D57	formula	=IF(Data!C33="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A58	formula	=IF(Data!C34="","","□")
+TF!B58	formula	=IF(Data!C34="","",Data!C34)
+TF!C58	formula	=IF(Data!C34="","",Data!G34)
+TF!D58	formula	=IF(Data!C34="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A59	formula	=IF(Data!C35="","","□")
+TF!B59	formula	=IF(Data!C35="","",Data!C35)
+TF!C59	formula	=IF(Data!C35="","",Data!G35)
+TF!D59	formula	=IF(Data!C35="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A60	formula	=IF(Data!C36="","","□")
+TF!B60	formula	=IF(Data!C36="","",Data!C36)
+TF!C60	formula	=IF(Data!C36="","",Data!G36)
+TF!D60	formula	=IF(Data!C36="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A61	formula	=IF(Data!C37="","","□")
+TF!B61	formula	=IF(Data!C37="","",Data!C37)
+TF!C61	formula	=IF(Data!C37="","",Data!G37)
+TF!D61	formula	=IF(Data!C37="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A62	formula	=IF(Data!C38="","","□")
+TF!B62	formula	=IF(Data!C38="","",Data!C38)
+TF!C62	formula	=IF(Data!C38="","",Data!G38)
+TF!D62	formula	=IF(Data!C38="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A63	formula	=IF(Data!C39="","","□")
+TF!B63	formula	=IF(Data!C39="","",Data!C39)
+TF!C63	formula	=IF(Data!C39="","",Data!G39)
+TF!D63	formula	=IF(Data!C39="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A64	formula	=IF(Data!C40="","","□")
+TF!B64	formula	=IF(Data!C40="","",Data!C40)
+TF!C64	formula	=IF(Data!C40="","",Data!G40)
+TF!D64	formula	=IF(Data!C40="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A65	formula	=IF(Data!C41="","","□")
+TF!B65	formula	=IF(Data!C41="","",Data!C41)
+TF!C65	formula	=IF(Data!C41="","",Data!G41)
+TF!D65	formula	=IF(Data!C41="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A66	formula	=IF(Data!C42="","","□")
+TF!B66	formula	=IF(Data!C42="","",Data!C42)
+TF!C66	formula	=IF(Data!C42="","",Data!G42)
+TF!D66	formula	=IF(Data!C42="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A67	formula	=IF(Data!C43="","","□")
+TF!B67	formula	=IF(Data!C43="","",Data!C43)
+TF!C67	formula	=IF(Data!C43="","",Data!G43)
+TF!D67	formula	=IF(Data!C43="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A68	formula	=IF(Data!C44="","","□")
+TF!B68	formula	=IF(Data!C44="","",Data!C44)
+TF!C68	formula	=IF(Data!C44="","",Data!G44)
+TF!D68	formula	=IF(Data!C44="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A69	formula	=IF(Data!C45="","","□")
+TF!B69	formula	=IF(Data!C45="","",Data!C45)
+TF!C69	formula	=IF(Data!C45="","",Data!G45)
+TF!D69	formula	=IF(Data!C45="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A70	formula	=IF(Data!C46="","","□")
+TF!B70	formula	=IF(Data!C46="","",Data!C46)
+TF!C70	formula	=IF(Data!C46="","",Data!G46)
+TF!D70	formula	=IF(Data!C46="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A71	formula	=IF(Data!C47="","","□")
+TF!B71	formula	=IF(Data!C47="","",Data!C47)
+TF!C71	formula	=IF(Data!C47="","",Data!G47)
+TF!D71	formula	=IF(Data!C47="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A72	formula	=IF(Data!C48="","","□")
+TF!B72	formula	=IF(Data!C48="","",Data!C48)
+TF!C72	formula	=IF(Data!C48="","",Data!G48)
+TF!D72	formula	=IF(Data!C48="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A73	formula	=IF(Data!C49="","","□")
+TF!B73	formula	=IF(Data!C49="","",Data!C49)
+TF!C73	formula	=IF(Data!C49="","",Data!G49)
+TF!D73	formula	=IF(Data!C49="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)

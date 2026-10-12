@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: Plasmid Protocol Builder
+message: >-
+  If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Hiroaki
+    family-names: Takesue
+    orcid: "https://orcid.org/0000-0001-8585-5494"
+    affiliation: >-
+      Division of Transcriptomics, Medical Institute of Bioregulation,
+      Kyushu University
+repository-code: https://github.com/takeisue1270/Plasmid_Protocol_Builder
+url: https://github.com/takeisue1270/Plasmid_Protocol_Builder
+abstract: >-
+  A command-line tool that builds bench-protocol workbooks for HiFi assembly
+  and Golden Gate assembly from a design table, given as a CSV file or as one
+  block of a project workbook. The rows are written to the Data sheet of an
+  Excel template whose other sheets are formulas: restriction digestion, PCR,
+  assembly mix, oligo annealing, ligation mix and transformation. Reagent
+  volumes and conditions are documented and meant to be edited.
+keywords:
+  - molecular cloning
+  - Golden Gate assembly
+  - HiFi assembly
+  - bench protocol
+  - plasmid construction
+license: MIT
+version: 0.1.0
+date-released: '2026-10-12'

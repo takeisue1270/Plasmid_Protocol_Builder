@@ -1,0 +1,1354 @@
+RElist!A1	value	Restriction enzymes the RE sheet looks up. From row 4 down, one enzyme per row: Enzyme, Buffer, Reaction temp., Heat inactivation (No if it cannot be heat-inactivated).
+RElist!A2	value	Names are matched as written in the design record, ignoring case, without registered-trademark signs or spaces at the ends. Add rows below the last one; the RE sheet reads A4:D650. Check every value against the current datasheet.
+RElist!A3	value	Enzyme
+RElist!A3	comment	Add the enzymes you need below the last row, one per row, keeping columns A-D (Enzyme, Buffer, Reaction temp., Heat inactivation). Write No in D if the enzyme cannot be heat-inactivated. The RE sheet reads A4:D650. Edits made to an output workbook are lost the next time it is built: copy the template, edit the copy and pass it with --template.
+RElist!B3	value	Buffer
+RElist!C3	value	Reaction temp.
+RElist!D3	value	Heat inactivation
+Data!A1	value	Plasmid Construction
+Data!A1	numfmt	@
+Data!A1	comment	Only columns B, C, G, H, I, J, L, M, N, O and P are read by the other sheets. The other columns are free for your own notes.
+Data!B1	value	Project No.
+Data!B1	numfmt	@
+Data!C1	value	Sub. No.
+Data!C1	numfmt	@
+Data!D1	value	Method
+Data!D1	numfmt	@
+Data!E1	value	Plasmid map
+Data!E1	numfmt	@
+Data!F1	value	Length
+Data!F1	numfmt	@
+Data!G1	value	Plasmid name
+Data!G1	numfmt	@
+Data!H1	value	RE1
+Data!H1	numfmt	@
+Data!I1	value	RE2
+Data!I1	numfmt	@
+Data!J1	value	Backbone plasmid/gDNA
+Data!J1	numfmt	@
+Data!K1	value	Backbone prep.
+Data!K1	numfmt	@
+Data!L1	value	Length (bp)
+Data!L1	numfmt	@
+Data!M1	value	PCR primer/Oligo 1
+Data!M1	numfmt	@
+Data!N1	value	PCR primer/Oligo 2
+Data!N1	numfmt	@
+Data!O1	value	Template
+Data!O1	numfmt	@
+Data!P1	value	Length (bp)
+Data!P1	numfmt	@
+Data!Q1	value	PCR/Annealing
+Data!Q1	numfmt	@
+Data!R1	value	DpnI
+Data!R1	numfmt	@
+Data!S1	value	Transformation
+Data!S1	numfmt	@
+Data!T1	value	Miniprep
+Data!T1	numfmt	@
+Data!U1	value	Plasmid Ext.
+Data!U1	numfmt	@
+Data!V1	value	Nanopore
+Data!V1	numfmt	@
+Data!W1	value	Sequence check
+Data!W1	numfmt	@
+Data!X1	value	Plasmid No.
+Data!X1	numfmt	@
+Data!Y1	value	Plasmid name
+Data!Y1	numfmt	@
+Data!Z1	value	Competent cell
+Data!Z1	numfmt	@
+Data!AA1	value	Conc
+Data!AA1	numfmt	@
+Data!AB1	value	Design
+Data!AB1	numfmt	@
+Data!AC1	value	Order
+Data!AC1	numfmt	@
+Data!AD1	value	Obtained
+Data!AD1	numfmt	@
+Data!AE1	value	Made by
+Data!AE1	numfmt	@
+Data!AF1	value	Entered by
+Data!AF1	numfmt	@
+Data!AG1	value	Project number
+Data!AG1	numfmt	@
+Data!A2:A4 H2:L4 S2:AG4	cf	expression|$C2=""|3
+Data!A2:AG4	cf	expression|COUNTA($W2)=1|1
+Data!H2:I4 K2:L4 O2:P4 R2:R4	cf	expression|$D2="GGA"|2
+Data!R2:R4	cf	expression|LEFT($O2,1)<>"V"|4
+RE!A1	formula	=TODAY()
+RE!A1	numfmt	yyyy/mm/dd
+RE!C1	value	Cloning with HiFi assembly
+RE!A3	value	1. Restriction digestion of the backbone
+RE!A4	value	□
+RE!B4	value	Thaw the backbone plasmid and 10×CutSmart at room temperature
+RE!B6	value	Samples to digest
+RE!C6	formula	=COUNTIF($F$14:$F$25,"RE")
+RE!D6	value	samples
+RE!B7	value	Samples prepared by PCR
+RE!C7	formula	=COUNTIF($F$14:$F$25,"PCR")
+RE!D7	value	samples
+RE!B8	value	Total volume per reaction
+RE!C8	value	50
+RE!D8	value	uL
+RE!B9	value	Plasmid DNA
+RE!C9	value	10
+RE!D9	value	uL/sample
+RE!B10	value	Column purification
+RE!C10	value	Yes
+RE!E10	value	No heat inactivation is needed when this is Yes
+RE!B12	value	• Reaction mix per sample
+RE!B13	value	Sub. No.
+RE!C13	value	Backbone
+RE!D13	value	RE1
+RE!E13	value	RE2
+RE!F13	value	Prep
+RE!G13	value	Plasmid DNA
+RE!H13	value	10×CutSmart
+RE!H13	comment	The buffer and its volume (1/10 of the reaction) are for 10×CutSmart. An enzyme that needs another buffer needs this column and the premix below changed.
+RE!I13	value	RE1 (uL)
+RE!J13	value	RE2 (uL)
+RE!K13	value	H2O
+RE!L13	value	Total
+RE!M13	value	Reaction temp.
+RE!N13	value	Heat inactivation
+RE!A14	formula	=IF($F14="RE","□","")
+RE!B14	formula	=IF(Data!C2="","",Data!C2)
+RE!C14	formula	=IF(Data!C2="","",Data!J2)
+RE!D14	formula	=IF(Data!C2="","",Data!H2)
+RE!E14	formula	=IF(Data!C2="","",IF(Data!I2="","",Data!I2))
+RE!F14	formula	=IF(OR(Data!C2="",Data!H2=""),"",IF(ISNA(MATCH(Data!H2,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G14	formula	=IF($F14<>"RE","",$C$9)
+RE!H14	formula	=IF($F14<>"RE","",$C$8/10)
+RE!I14	formula	=IF($F14<>"RE","",IF(D14="",0,$C$8/25))
+RE!J14	formula	=IF($F14<>"RE","",IF(E14="",0,$C$8/25))
+RE!K14	formula	=IF($F14<>"RE","",$C$8-G14-H14-I14-J14)
+RE!L14	formula	=IF($F14<>"RE","",SUM(G14:K14))
+RE!M14	formula	=IF($F14<>"RE","",IFERROR(IF(E14="",VLOOKUP(D14,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D14,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E14,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D14,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N14	formula	=IF($F14<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E14="",VLOOKUP(D14,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D14,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E14,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A15	formula	=IF($F15="RE","□","")
+RE!B15	formula	=IF(Data!C3="","",Data!C3)
+RE!C15	formula	=IF(Data!C3="","",Data!J3)
+RE!D15	formula	=IF(Data!C3="","",Data!H3)
+RE!E15	formula	=IF(Data!C3="","",IF(Data!I3="","",Data!I3))
+RE!F15	formula	=IF(OR(Data!C3="",Data!H3=""),"",IF(ISNA(MATCH(Data!H3,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G15	formula	=IF($F15<>"RE","",$C$9)
+RE!H15	formula	=IF($F15<>"RE","",$C$8/10)
+RE!I15	formula	=IF($F15<>"RE","",IF(D15="",0,$C$8/25))
+RE!J15	formula	=IF($F15<>"RE","",IF(E15="",0,$C$8/25))
+RE!K15	formula	=IF($F15<>"RE","",$C$8-G15-H15-I15-J15)
+RE!L15	formula	=IF($F15<>"RE","",SUM(G15:K15))
+RE!M15	formula	=IF($F15<>"RE","",IFERROR(IF(E15="",VLOOKUP(D15,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D15,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E15,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D15,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N15	formula	=IF($F15<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E15="",VLOOKUP(D15,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D15,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E15,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A16	formula	=IF($F16="RE","□","")
+RE!B16	formula	=IF(Data!C4="","",Data!C4)
+RE!C16	formula	=IF(Data!C4="","",Data!J4)
+RE!D16	formula	=IF(Data!C4="","",Data!H4)
+RE!E16	formula	=IF(Data!C4="","",IF(Data!I4="","",Data!I4))
+RE!F16	formula	=IF(OR(Data!C4="",Data!H4=""),"",IF(ISNA(MATCH(Data!H4,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G16	formula	=IF($F16<>"RE","",$C$9)
+RE!H16	formula	=IF($F16<>"RE","",$C$8/10)
+RE!I16	formula	=IF($F16<>"RE","",IF(D16="",0,$C$8/25))
+RE!J16	formula	=IF($F16<>"RE","",IF(E16="",0,$C$8/25))
+RE!K16	formula	=IF($F16<>"RE","",$C$8-G16-H16-I16-J16)
+RE!L16	formula	=IF($F16<>"RE","",SUM(G16:K16))
+RE!M16	formula	=IF($F16<>"RE","",IFERROR(IF(E16="",VLOOKUP(D16,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D16,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E16,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D16,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N16	formula	=IF($F16<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E16="",VLOOKUP(D16,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D16,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E16,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A17	formula	=IF($F17="RE","□","")
+RE!B17	formula	=IF(Data!C5="","",Data!C5)
+RE!C17	formula	=IF(Data!C5="","",Data!J5)
+RE!D17	formula	=IF(Data!C5="","",Data!H5)
+RE!E17	formula	=IF(Data!C5="","",IF(Data!I5="","",Data!I5))
+RE!F17	formula	=IF(OR(Data!C5="",Data!H5=""),"",IF(ISNA(MATCH(Data!H5,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G17	formula	=IF($F17<>"RE","",$C$9)
+RE!H17	formula	=IF($F17<>"RE","",$C$8/10)
+RE!I17	formula	=IF($F17<>"RE","",IF(D17="",0,$C$8/25))
+RE!J17	formula	=IF($F17<>"RE","",IF(E17="",0,$C$8/25))
+RE!K17	formula	=IF($F17<>"RE","",$C$8-G17-H17-I17-J17)
+RE!L17	formula	=IF($F17<>"RE","",SUM(G17:K17))
+RE!M17	formula	=IF($F17<>"RE","",IFERROR(IF(E17="",VLOOKUP(D17,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D17,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E17,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D17,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N17	formula	=IF($F17<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E17="",VLOOKUP(D17,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D17,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E17,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A18	formula	=IF($F18="RE","□","")
+RE!B18	formula	=IF(Data!C6="","",Data!C6)
+RE!C18	formula	=IF(Data!C6="","",Data!J6)
+RE!D18	formula	=IF(Data!C6="","",Data!H6)
+RE!E18	formula	=IF(Data!C6="","",IF(Data!I6="","",Data!I6))
+RE!F18	formula	=IF(OR(Data!C6="",Data!H6=""),"",IF(ISNA(MATCH(Data!H6,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G18	formula	=IF($F18<>"RE","",$C$9)
+RE!H18	formula	=IF($F18<>"RE","",$C$8/10)
+RE!I18	formula	=IF($F18<>"RE","",IF(D18="",0,$C$8/25))
+RE!J18	formula	=IF($F18<>"RE","",IF(E18="",0,$C$8/25))
+RE!K18	formula	=IF($F18<>"RE","",$C$8-G18-H18-I18-J18)
+RE!L18	formula	=IF($F18<>"RE","",SUM(G18:K18))
+RE!M18	formula	=IF($F18<>"RE","",IFERROR(IF(E18="",VLOOKUP(D18,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D18,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E18,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D18,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N18	formula	=IF($F18<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E18="",VLOOKUP(D18,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D18,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E18,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A19	formula	=IF($F19="RE","□","")
+RE!B19	formula	=IF(Data!C7="","",Data!C7)
+RE!C19	formula	=IF(Data!C7="","",Data!J7)
+RE!D19	formula	=IF(Data!C7="","",Data!H7)
+RE!E19	formula	=IF(Data!C7="","",IF(Data!I7="","",Data!I7))
+RE!F19	formula	=IF(OR(Data!C7="",Data!H7=""),"",IF(ISNA(MATCH(Data!H7,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G19	formula	=IF($F19<>"RE","",$C$9)
+RE!H19	formula	=IF($F19<>"RE","",$C$8/10)
+RE!I19	formula	=IF($F19<>"RE","",IF(D19="",0,$C$8/25))
+RE!J19	formula	=IF($F19<>"RE","",IF(E19="",0,$C$8/25))
+RE!K19	formula	=IF($F19<>"RE","",$C$8-G19-H19-I19-J19)
+RE!L19	formula	=IF($F19<>"RE","",SUM(G19:K19))
+RE!M19	formula	=IF($F19<>"RE","",IFERROR(IF(E19="",VLOOKUP(D19,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D19,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E19,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D19,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N19	formula	=IF($F19<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E19="",VLOOKUP(D19,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D19,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E19,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A20	formula	=IF($F20="RE","□","")
+RE!B20	formula	=IF(Data!C8="","",Data!C8)
+RE!C20	formula	=IF(Data!C8="","",Data!J8)
+RE!D20	formula	=IF(Data!C8="","",Data!H8)
+RE!E20	formula	=IF(Data!C8="","",IF(Data!I8="","",Data!I8))
+RE!F20	formula	=IF(OR(Data!C8="",Data!H8=""),"",IF(ISNA(MATCH(Data!H8,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G20	formula	=IF($F20<>"RE","",$C$9)
+RE!H20	formula	=IF($F20<>"RE","",$C$8/10)
+RE!I20	formula	=IF($F20<>"RE","",IF(D20="",0,$C$8/25))
+RE!J20	formula	=IF($F20<>"RE","",IF(E20="",0,$C$8/25))
+RE!K20	formula	=IF($F20<>"RE","",$C$8-G20-H20-I20-J20)
+RE!L20	formula	=IF($F20<>"RE","",SUM(G20:K20))
+RE!M20	formula	=IF($F20<>"RE","",IFERROR(IF(E20="",VLOOKUP(D20,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D20,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E20,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D20,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N20	formula	=IF($F20<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E20="",VLOOKUP(D20,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D20,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E20,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A21	formula	=IF($F21="RE","□","")
+RE!B21	formula	=IF(Data!C9="","",Data!C9)
+RE!C21	formula	=IF(Data!C9="","",Data!J9)
+RE!D21	formula	=IF(Data!C9="","",Data!H9)
+RE!E21	formula	=IF(Data!C9="","",IF(Data!I9="","",Data!I9))
+RE!F21	formula	=IF(OR(Data!C9="",Data!H9=""),"",IF(ISNA(MATCH(Data!H9,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G21	formula	=IF($F21<>"RE","",$C$9)
+RE!H21	formula	=IF($F21<>"RE","",$C$8/10)
+RE!I21	formula	=IF($F21<>"RE","",IF(D21="",0,$C$8/25))
+RE!J21	formula	=IF($F21<>"RE","",IF(E21="",0,$C$8/25))
+RE!K21	formula	=IF($F21<>"RE","",$C$8-G21-H21-I21-J21)
+RE!L21	formula	=IF($F21<>"RE","",SUM(G21:K21))
+RE!M21	formula	=IF($F21<>"RE","",IFERROR(IF(E21="",VLOOKUP(D21,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D21,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E21,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D21,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N21	formula	=IF($F21<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E21="",VLOOKUP(D21,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D21,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E21,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A22	formula	=IF($F22="RE","□","")
+RE!B22	formula	=IF(Data!C10="","",Data!C10)
+RE!C22	formula	=IF(Data!C10="","",Data!J10)
+RE!D22	formula	=IF(Data!C10="","",Data!H10)
+RE!E22	formula	=IF(Data!C10="","",IF(Data!I10="","",Data!I10))
+RE!F22	formula	=IF(OR(Data!C10="",Data!H10=""),"",IF(ISNA(MATCH(Data!H10,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G22	formula	=IF($F22<>"RE","",$C$9)
+RE!H22	formula	=IF($F22<>"RE","",$C$8/10)
+RE!I22	formula	=IF($F22<>"RE","",IF(D22="",0,$C$8/25))
+RE!J22	formula	=IF($F22<>"RE","",IF(E22="",0,$C$8/25))
+RE!K22	formula	=IF($F22<>"RE","",$C$8-G22-H22-I22-J22)
+RE!L22	formula	=IF($F22<>"RE","",SUM(G22:K22))
+RE!M22	formula	=IF($F22<>"RE","",IFERROR(IF(E22="",VLOOKUP(D22,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D22,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E22,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D22,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N22	formula	=IF($F22<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E22="",VLOOKUP(D22,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D22,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E22,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A23	formula	=IF($F23="RE","□","")
+RE!B23	formula	=IF(Data!C11="","",Data!C11)
+RE!C23	formula	=IF(Data!C11="","",Data!J11)
+RE!D23	formula	=IF(Data!C11="","",Data!H11)
+RE!E23	formula	=IF(Data!C11="","",IF(Data!I11="","",Data!I11))
+RE!F23	formula	=IF(OR(Data!C11="",Data!H11=""),"",IF(ISNA(MATCH(Data!H11,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G23	formula	=IF($F23<>"RE","",$C$9)
+RE!H23	formula	=IF($F23<>"RE","",$C$8/10)
+RE!I23	formula	=IF($F23<>"RE","",IF(D23="",0,$C$8/25))
+RE!J23	formula	=IF($F23<>"RE","",IF(E23="",0,$C$8/25))
+RE!K23	formula	=IF($F23<>"RE","",$C$8-G23-H23-I23-J23)
+RE!L23	formula	=IF($F23<>"RE","",SUM(G23:K23))
+RE!M23	formula	=IF($F23<>"RE","",IFERROR(IF(E23="",VLOOKUP(D23,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D23,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E23,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D23,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N23	formula	=IF($F23<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E23="",VLOOKUP(D23,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D23,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E23,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A24	formula	=IF($F24="RE","□","")
+RE!B24	formula	=IF(Data!C12="","",Data!C12)
+RE!C24	formula	=IF(Data!C12="","",Data!J12)
+RE!D24	formula	=IF(Data!C12="","",Data!H12)
+RE!E24	formula	=IF(Data!C12="","",IF(Data!I12="","",Data!I12))
+RE!F24	formula	=IF(OR(Data!C12="",Data!H12=""),"",IF(ISNA(MATCH(Data!H12,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G24	formula	=IF($F24<>"RE","",$C$9)
+RE!H24	formula	=IF($F24<>"RE","",$C$8/10)
+RE!I24	formula	=IF($F24<>"RE","",IF(D24="",0,$C$8/25))
+RE!J24	formula	=IF($F24<>"RE","",IF(E24="",0,$C$8/25))
+RE!K24	formula	=IF($F24<>"RE","",$C$8-G24-H24-I24-J24)
+RE!L24	formula	=IF($F24<>"RE","",SUM(G24:K24))
+RE!M24	formula	=IF($F24<>"RE","",IFERROR(IF(E24="",VLOOKUP(D24,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D24,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E24,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D24,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N24	formula	=IF($F24<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E24="",VLOOKUP(D24,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D24,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E24,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!A25	formula	=IF($F25="RE","□","")
+RE!B25	formula	=IF(Data!C13="","",Data!C13)
+RE!C25	formula	=IF(Data!C13="","",Data!J13)
+RE!D25	formula	=IF(Data!C13="","",Data!H13)
+RE!E25	formula	=IF(Data!C13="","",IF(Data!I13="","",Data!I13))
+RE!F25	formula	=IF(OR(Data!C13="",Data!H13=""),"",IF(ISNA(MATCH(Data!H13,RElist!$A$4:$A$650,0)),"PCR","RE"))
+RE!G25	formula	=IF($F25<>"RE","",$C$9)
+RE!H25	formula	=IF($F25<>"RE","",$C$8/10)
+RE!I25	formula	=IF($F25<>"RE","",IF(D25="",0,$C$8/25))
+RE!J25	formula	=IF($F25<>"RE","",IF(E25="",0,$C$8/25))
+RE!K25	formula	=IF($F25<>"RE","",$C$8-G25-H25-I25-J25)
+RE!L25	formula	=IF($F25<>"RE","",SUM(G25:K25))
+RE!M25	formula	=IF($F25<>"RE","",IFERROR(IF(E25="",VLOOKUP(D25,RElist!$A$4:$D$650,3,FALSE),IF(VLOOKUP(D25,RElist!$A$4:$D$650,3,FALSE)=VLOOKUP(E25,RElist!$A$4:$D$650,3,FALSE),VLOOKUP(D25,RElist!$A$4:$D$650,3,FALSE),"Check conditions")),"Check"))
+RE!N25	formula	=IF($F25<>"RE","",IF($C$10="Yes","Not needed",IFERROR(IF(IF(E25="",VLOOKUP(D25,RElist!$A$4:$D$650,4,FALSE)="No",OR(VLOOKUP(D25,RElist!$A$4:$D$650,4,FALSE)="No",VLOOKUP(E25,RElist!$A$4:$D$650,4,FALSE)="No")),"Not possible","Possible"),"Check")))
+RE!B27	value	• Premix of H2O + 10×CutSmart
+RE!D28	value	Mix tubes
+RE!E28	formula	=IF($C$6=0,0,$C$6+2)
+RE!F28	value	tubes (samples + 2)
+RE!B29	value	Reagent
+RE!C29	value	Final
+RE!D29	value	1 sample (uL)
+RE!E29	value	Mix (uL)
+RE!F29	value	Notes
+RE!A30	value	□
+RE!B30	value	milliQ
+RE!D30	formula	=IFERROR(INDEX($K$14:$K$25,MATCH("RE",$F$14:$F$25,0)),0)
+RE!D30	numfmt	0.0
+RE!E30	formula	=D30*$E$28
+RE!E30	numfmt	0.0
+RE!A31	value	□
+RE!B31	value	10×CutSmart
+RE!C31	value	1x
+RE!D31	formula	=$C$8/10
+RE!D31	numfmt	0.0
+RE!E31	formula	=D31*$E$28
+RE!E31	numfmt	0.0
+RE!B32	value	Master mix subtotal
+RE!D32	formula	=SUM(D30:D31)
+RE!D32	numfmt	0.0
+RE!E32	formula	=SUM(E30:E31)
+RE!E32	numfmt	0.0
+RE!A33	value	□
+RE!B33	value	Backbone plasmid
+RE!D33	formula	=$C$9
+RE!D33	numfmt	0.0
+RE!F33	value	Add to each tube individually
+RE!A34	value	□
+RE!B34	value	Restriction enzyme (per tube)
+RE!D34	formula	=$C$8/25
+RE!D34	numfmt	0.0
+RE!F34	value	Add to each tube individually
+RE!B35	value	Total
+RE!D35	formula	=IF($C$6=0,0,$C$8)
+RE!D35	numfmt	0.0
+RE!F35	value	uL
+RE!B36	formula	=IF($C$6=0,"",IF(COUNTIFS($F$14:$F$25,"RE",$K$14:$K$25,D30)=$C$6,"","Note: the H2O volume differs between samples (a different number of enzymes). Split the mix."))
+RE!A38	value	□
+RE!B38	value	Mix well by vortexing, then spin down
+RE!A39	value	□
+RE!B39	value	React under the following conditions
+RE!C39	formula	=IFERROR(INDEX($M$14:$M$25,MATCH("RE",$F$14:$F$25,0)),"")
+RE!D39	value	60 min
+RE!A40	value	□
+RE!B40	formula	=IF($C$10="Yes","Purify on a column (no heat inactivation needed)","Heat-inactivate")
+RE!B41	value	(checkpoint) Can be stored at -30°C
+PCR!A1	formula	=TODAY()
+PCR!A1	numfmt	yyyy/mm/dd
+PCR!C1	value	Cloning with HiFi assembly
+PCR!A3	value	2. PCR of the insert
+PCR!A4	value	□
+PCR!B4	value	Thaw KOD One, the primers and the templates at room temperature
+PCR!B6	value	PCR tubes
+PCR!C6	formula	=COUNTIF($A$55:$A$66,"□")
+PCR!D6	value	tubes
+PCR!B7	value	Mix tubes to prepare
+PCR!C7	formula	=IF($C$6=0,0,$C$6+2)
+PCR!D7	value	tubes
+PCR!E7	value	(PCR tubes + 2)
+PCR!B8	value	Longest product
+PCR!C8	formula	=IF($C$6=0,0,MAX($G$55:$G$66))
+PCR!D8	value	bp
+PCR!B9	value	Extension time
+PCR!C9	formula	=IF($C$8=0,"",MAX(5,ROUNDUP($C$8/1000*5,0)))
+PCR!D9	value	sec
+PCR!E9	value	KOD One 5 sec/kb, set by the longest product
+PCR!B10	formula	=IF(COUNTIFS($A$55:$A$66,"□",$G$55:$G$66,"")=0,"","Note: some rows have an empty Length (bp). The extension time is calculated from the filled rows only.")
+PCR!B12	value	• Template solution (1/5 dilution, per template)
+PCR!B13	value	Reagent
+PCR!C13	value	Final
+PCR!D13	value	Volume (uL)
+PCR!A14	value	□
+PCR!B14	value	Template DNA
+PCR!D14	value	2
+PCR!D14	numfmt	0.0
+PCR!A15	value	□
+PCR!B15	value	H2O
+PCR!D15	value	8
+PCR!D15	numfmt	0.0
+PCR!B16	value	Total
+PCR!D16	formula	=SUM(D14:D15)
+PCR!D16	numfmt	0.0
+PCR!E16	value	uL
+PCR!B18	value	• Primer solution (100 uM → 10 uM, per primer)
+PCR!B19	value	Reagent
+PCR!C19	value	Final
+PCR!D19	value	Volume (uL)
+PCR!A20	value	□
+PCR!B20	value	100 uM Primer
+PCR!C20	value	10 uM
+PCR!D20	value	2
+PCR!D20	numfmt	0.0
+PCR!A21	value	□
+PCR!B21	value	H2O
+PCR!D21	value	18
+PCR!D21	numfmt	0.0
+PCR!B22	value	Total
+PCR!D22	formula	=SUM(D20:D21)
+PCR!D22	numfmt	0.0
+PCR!E22	value	uL
+PCR!B24	value	• PCR mix preparation
+PCR!D25	value	Mix tubes
+PCR!E25	formula	=$C$7
+PCR!F25	value	tubes
+PCR!B26	value	Reagent
+PCR!C26	value	Final
+PCR!D26	value	1 sample (uL)
+PCR!E26	value	Mix (uL)
+PCR!F26	value	Notes
+PCR!A27	value	□
+PCR!B27	value	H2O
+PCR!D27	value	21
+PCR!D27	numfmt	0.0
+PCR!E27	formula	=D27*$E$25
+PCR!E27	numfmt	0.0
+PCR!A28	value	□
+PCR!B28	value	KOD One
+PCR!B28	comment	Volumes and cycling are for KOD One. For another polymerase change the volumes here and the conditions in rows 37-41.
+PCR!C28	value	1x
+PCR!D28	value	25
+PCR!D28	numfmt	0.0
+PCR!E28	formula	=D28*$E$25
+PCR!E28	numfmt	0.0
+PCR!B29	value	Master mix subtotal
+PCR!D29	formula	=SUM(D27:D28)
+PCR!D29	numfmt	0.0
+PCR!E29	formula	=SUM(E27:E28)
+PCR!E29	numfmt	0.0
+PCR!A30	value	□
+PCR!B30	value	10 uM Primer 5'
+PCR!D30	value	1.5
+PCR!D30	numfmt	0.0
+PCR!F30	value	Add to each tube individually
+PCR!A31	value	□
+PCR!B31	value	10 uM Primer 3'
+PCR!D31	value	1.5
+PCR!D31	numfmt	0.0
+PCR!F31	value	Add to each tube individually
+PCR!A32	value	□
+PCR!B32	value	1/5 Template DNA
+PCR!D32	value	1
+PCR!D32	numfmt	0.0
+PCR!F32	value	Add to each tube individually
+PCR!B33	value	Total
+PCR!D33	formula	=D29+SUM(D30:D32)
+PCR!D33	numfmt	0.0
+PCR!F33	value	uL
+PCR!B35	value	• PCR conditions (KOD One)
+PCR!B36	value	Step
+PCR!C36	value	Temp.
+PCR!D36	value	Time
+PCR!E36	value	Cycles
+PCR!A37	value	□
+PCR!B37	value	Denature
+PCR!C37	value	98°C
+PCR!D37	value	2 min
+PCR!B38	value	Denature
+PCR!C38	value	98°C
+PCR!D38	value	10 sec
+PCR!E38	value	40
+PCR!B39	value	Annealing
+PCR!C39	value	55°C
+PCR!D39	value	5 sec
+PCR!B40	value	Extension
+PCR!C40	value	68°C
+PCR!D40	formula	=IF($C$9="","",$C$9&" sec")
+PCR!B41	value	Hold
+PCR!C41	value	4°C
+PCR!D41	value	∞
+PCR!B43	value	• DpnI digestion
+PCR!D44	value	Mix tubes
+PCR!E44	formula	=$C$7
+PCR!F44	value	tubes
+PCR!B45	value	Reagent
+PCR!C45	value	Final
+PCR!D45	value	1 sample (uL)
+PCR!E45	value	Mix (uL)
+PCR!F45	value	Notes
+PCR!A46	value	□
+PCR!B46	value	10×FD
+PCR!B46	comment	The volumes in rows 46-47 are for FastDigest-type DpnI and its 10×FD buffer. For another DpnI, change them.
+PCR!D46	value	5.5
+PCR!D46	numfmt	0.0
+PCR!E46	formula	=D46*$E$44
+PCR!E46	numfmt	0.0
+PCR!A47	value	□
+PCR!B47	value	DpnI
+PCR!D47	value	1
+PCR!D47	numfmt	0.0
+PCR!E47	formula	=D47*$E$44
+PCR!E47	numfmt	0.0
+PCR!B48	value	Master mix subtotal
+PCR!D48	formula	=SUM(D46:D47)
+PCR!D48	numfmt	0.0
+PCR!E48	formula	=SUM(E46:E47)
+PCR!E48	numfmt	0.0
+PCR!A49	value	□
+PCR!B49	value	PCR library
+PCR!C49	value	Total
+PCR!D49	value	50
+PCR!D49	numfmt	0.0
+PCR!F49	value	Add to each tube individually
+PCR!B50	value	Total
+PCR!D50	formula	=D48+SUM(D49:D49)
+PCR!D50	numfmt	0.0
+PCR!F50	value	uL
+PCR!B51	value	37°C 15 min  →  80°C 5 min
+PCR!B53	value	PCR list
+PCR!B54	value	Sub. No.
+PCR!C54	value	Plasmid name
+PCR!D54	value	Primer 1
+PCR!E54	value	Primer 2
+PCR!F54	value	Template
+PCR!G54	value	Length (bp)
+PCR!H54	value	Extension time (sec)
+PCR!A55	formula	=IF(Data!M2="","","□")
+PCR!B55	formula	=IF(Data!M2="","",IF(Data!C2="","""",Data!C2))
+PCR!C55	formula	=IF(Data!M2="","",Data!G2&"")
+PCR!D55	formula	=IF(Data!M2="","",Data!M2)
+PCR!E55	formula	=IF(Data!M2="","",Data!N2)
+PCR!F55	formula	=IF(Data!M2="","",Data!O2&"")
+PCR!G55	formula	=IF(Data!M2="","",IF(Data!P2="","",Data!P2))
+PCR!H55	formula	=IF(OR(Data!M2="",G55=""),"",MAX(5,ROUNDUP(G55/1000*5,0)))
+PCR!A56	formula	=IF(Data!M3="","","□")
+PCR!B56	formula	=IF(Data!M3="","",IF(Data!C3="","""",Data!C3))
+PCR!C56	formula	=IF(Data!M3="","",Data!G3&"")
+PCR!D56	formula	=IF(Data!M3="","",Data!M3)
+PCR!E56	formula	=IF(Data!M3="","",Data!N3)
+PCR!F56	formula	=IF(Data!M3="","",Data!O3&"")
+PCR!G56	formula	=IF(Data!M3="","",IF(Data!P3="","",Data!P3))
+PCR!H56	formula	=IF(OR(Data!M3="",G56=""),"",MAX(5,ROUNDUP(G56/1000*5,0)))
+PCR!A57	formula	=IF(Data!M4="","","□")
+PCR!B57	formula	=IF(Data!M4="","",IF(Data!C4="","""",Data!C4))
+PCR!C57	formula	=IF(Data!M4="","",Data!G4&"")
+PCR!D57	formula	=IF(Data!M4="","",Data!M4)
+PCR!E57	formula	=IF(Data!M4="","",Data!N4)
+PCR!F57	formula	=IF(Data!M4="","",Data!O4&"")
+PCR!G57	formula	=IF(Data!M4="","",IF(Data!P4="","",Data!P4))
+PCR!H57	formula	=IF(OR(Data!M4="",G57=""),"",MAX(5,ROUNDUP(G57/1000*5,0)))
+PCR!A58	formula	=IF(Data!M5="","","□")
+PCR!B58	formula	=IF(Data!M5="","",IF(Data!C5="","""",Data!C5))
+PCR!C58	formula	=IF(Data!M5="","",Data!G5&"")
+PCR!D58	formula	=IF(Data!M5="","",Data!M5)
+PCR!E58	formula	=IF(Data!M5="","",Data!N5)
+PCR!F58	formula	=IF(Data!M5="","",Data!O5&"")
+PCR!G58	formula	=IF(Data!M5="","",IF(Data!P5="","",Data!P5))
+PCR!H58	formula	=IF(OR(Data!M5="",G58=""),"",MAX(5,ROUNDUP(G58/1000*5,0)))
+PCR!A59	formula	=IF(Data!M6="","","□")
+PCR!B59	formula	=IF(Data!M6="","",IF(Data!C6="","""",Data!C6))
+PCR!C59	formula	=IF(Data!M6="","",Data!G6&"")
+PCR!D59	formula	=IF(Data!M6="","",Data!M6)
+PCR!E59	formula	=IF(Data!M6="","",Data!N6)
+PCR!F59	formula	=IF(Data!M6="","",Data!O6&"")
+PCR!G59	formula	=IF(Data!M6="","",IF(Data!P6="","",Data!P6))
+PCR!H59	formula	=IF(OR(Data!M6="",G59=""),"",MAX(5,ROUNDUP(G59/1000*5,0)))
+PCR!A60	formula	=IF(Data!M7="","","□")
+PCR!B60	formula	=IF(Data!M7="","",IF(Data!C7="","""",Data!C7))
+PCR!C60	formula	=IF(Data!M7="","",Data!G7&"")
+PCR!D60	formula	=IF(Data!M7="","",Data!M7)
+PCR!E60	formula	=IF(Data!M7="","",Data!N7)
+PCR!F60	formula	=IF(Data!M7="","",Data!O7&"")
+PCR!G60	formula	=IF(Data!M7="","",IF(Data!P7="","",Data!P7))
+PCR!H60	formula	=IF(OR(Data!M7="",G60=""),"",MAX(5,ROUNDUP(G60/1000*5,0)))
+PCR!A61	formula	=IF(Data!M8="","","□")
+PCR!B61	formula	=IF(Data!M8="","",IF(Data!C8="","""",Data!C8))
+PCR!C61	formula	=IF(Data!M8="","",Data!G8&"")
+PCR!D61	formula	=IF(Data!M8="","",Data!M8)
+PCR!E61	formula	=IF(Data!M8="","",Data!N8)
+PCR!F61	formula	=IF(Data!M8="","",Data!O8&"")
+PCR!G61	formula	=IF(Data!M8="","",IF(Data!P8="","",Data!P8))
+PCR!H61	formula	=IF(OR(Data!M8="",G61=""),"",MAX(5,ROUNDUP(G61/1000*5,0)))
+PCR!A62	formula	=IF(Data!M9="","","□")
+PCR!B62	formula	=IF(Data!M9="","",IF(Data!C9="","""",Data!C9))
+PCR!C62	formula	=IF(Data!M9="","",Data!G9&"")
+PCR!D62	formula	=IF(Data!M9="","",Data!M9)
+PCR!E62	formula	=IF(Data!M9="","",Data!N9)
+PCR!F62	formula	=IF(Data!M9="","",Data!O9&"")
+PCR!G62	formula	=IF(Data!M9="","",IF(Data!P9="","",Data!P9))
+PCR!H62	formula	=IF(OR(Data!M9="",G62=""),"",MAX(5,ROUNDUP(G62/1000*5,0)))
+PCR!A63	formula	=IF(Data!M10="","","□")
+PCR!B63	formula	=IF(Data!M10="","",IF(Data!C10="","""",Data!C10))
+PCR!C63	formula	=IF(Data!M10="","",Data!G10&"")
+PCR!D63	formula	=IF(Data!M10="","",Data!M10)
+PCR!E63	formula	=IF(Data!M10="","",Data!N10)
+PCR!F63	formula	=IF(Data!M10="","",Data!O10&"")
+PCR!G63	formula	=IF(Data!M10="","",IF(Data!P10="","",Data!P10))
+PCR!H63	formula	=IF(OR(Data!M10="",G63=""),"",MAX(5,ROUNDUP(G63/1000*5,0)))
+PCR!A64	formula	=IF(Data!M11="","","□")
+PCR!B64	formula	=IF(Data!M11="","",IF(Data!C11="","""",Data!C11))
+PCR!C64	formula	=IF(Data!M11="","",Data!G11&"")
+PCR!D64	formula	=IF(Data!M11="","",Data!M11)
+PCR!E64	formula	=IF(Data!M11="","",Data!N11)
+PCR!F64	formula	=IF(Data!M11="","",Data!O11&"")
+PCR!G64	formula	=IF(Data!M11="","",IF(Data!P11="","",Data!P11))
+PCR!H64	formula	=IF(OR(Data!M11="",G64=""),"",MAX(5,ROUNDUP(G64/1000*5,0)))
+PCR!A65	formula	=IF(Data!M12="","","□")
+PCR!B65	formula	=IF(Data!M12="","",IF(Data!C12="","""",Data!C12))
+PCR!C65	formula	=IF(Data!M12="","",Data!G12&"")
+PCR!D65	formula	=IF(Data!M12="","",Data!M12)
+PCR!E65	formula	=IF(Data!M12="","",Data!N12)
+PCR!F65	formula	=IF(Data!M12="","",Data!O12&"")
+PCR!G65	formula	=IF(Data!M12="","",IF(Data!P12="","",Data!P12))
+PCR!H65	formula	=IF(OR(Data!M12="",G65=""),"",MAX(5,ROUNDUP(G65/1000*5,0)))
+PCR!A66	formula	=IF(Data!M13="","","□")
+PCR!B66	formula	=IF(Data!M13="","",IF(Data!C13="","""",Data!C13))
+PCR!C66	formula	=IF(Data!M13="","",Data!G13&"")
+PCR!D66	formula	=IF(Data!M13="","",Data!M13)
+PCR!E66	formula	=IF(Data!M13="","",Data!N13)
+PCR!F66	formula	=IF(Data!M13="","",Data!O13&"")
+PCR!G66	formula	=IF(Data!M13="","",IF(Data!P13="","",Data!P13))
+PCR!H66	formula	=IF(OR(Data!M13="",G66=""),"",MAX(5,ROUNDUP(G66/1000*5,0)))
+HiFi!A1	formula	=TODAY()
+HiFi!A1	numfmt	mm-dd-yy
+HiFi!B1	value	Insert : backbone ratio = 2 : 1
+HiFi!A2	value	Total
+HiFi!C2	value	Insert reaction conc.
+HiFi!E2	value	Backbone reaction conc.
+HiFi!G2	formula	=IF(A8>3,"Total conc.: "&0.02*A3&"~"&0.05*A3&" pmol","Total conc.: "&0.003*A3&"~"&0.02*A3&" pmol")
+HiFi!A3	value	5
+HiFi!B3	value	uL
+HiFi!C3	formula	=0.007*A3
+HiFi!D3	value	pmol
+HiFi!E3	formula	=IF(A8>3,C3,C3/2)
+HiFi!F3	value	pmol
+HiFi!G3	formula	=C3*A8+E3
+HiFi!H3	value	pmol
+HiFi!B6	value	Insert fragments
+HiFi!A7	value	Inserts
+HiFi!B7	value	DNA sample\n(Primer No.)
+HiFi!C7	value	\nConc.
+HiFi!D7	value	Fragment length (bp)
+HiFi!E7	value	Fragment\nstock conc.
+HiFi!G7	value	Reaction conc.
+HiFi!H7	value	Volume needed\n(final 20 uL)
+HiFi!I7	value	Volume needed\n(final 10 uL)
+HiFi!J7	value	Dilution factor
+HiFi!A8	formula	=MAX(1,COUNTIF(L9:L20,MAX(1,IFERROR(MODE(L9:L20),1))))
+HiFi!C8	value	ng/uL
+HiFi!E8	value	nmol/L
+HiFi!F8	value	pmol/uL
+HiFi!G8	value	pmol/uL
+HiFi!H8	value	uL
+HiFi!I8	value	uL
+HiFi!A9	formula	=IF(AND(Data!B2<>"",Data!C2=""),A8,Data!C2)
+HiFi!B9	formula	=Data!M2&"/"&Data!N2
+HiFi!D9	formula	=Data!P2
+HiFi!E9	formula	=F9*1000
+HiFi!E9	numfmt	0.0
+HiFi!F9	formula	=C9*1000/D9/650
+HiFi!F9	numfmt	0.0000
+HiFi!G9	formula	=$C$3
+HiFi!H9	formula	=G9/F9
+HiFi!H9	numfmt	0.000
+HiFi!I9	formula	=H9/2
+HiFi!I9	numfmt	0.00
+HiFi!J9	value	1
+HiFi!J9	numfmt	0.00
+HiFi!L9	formula	=IF(A9>0,A9,ROW(A9)-ROW($A$8))
+HiFi!M9	formula	=C9>0
+HiFi!M9	numfmt	0.00
+HiFi!A10	formula	=IF(AND(Data!B3<>"",Data!C3=""),A9,Data!C3)
+HiFi!B10	formula	=Data!M3&"/"&Data!N3
+HiFi!D10	formula	=Data!P3
+HiFi!E10	formula	=F10*1000
+HiFi!E10	numfmt	0.0
+HiFi!F10	formula	=C10*1000/D10/650
+HiFi!F10	numfmt	0.0000
+HiFi!G10	formula	=$C$3
+HiFi!H10	formula	=G10/F10
+HiFi!H10	numfmt	0.000
+HiFi!I10	formula	=H10/2
+HiFi!I10	numfmt	0.00
+HiFi!J10	value	1
+HiFi!J10	numfmt	0.00
+HiFi!L10	formula	=IF(A10>0,A10,ROW(A10)-ROW($A$8))
+HiFi!M10	formula	=C10>0
+HiFi!M10	numfmt	0.00
+HiFi!A11	formula	=IF(AND(Data!B4<>"",Data!C4=""),A10,Data!C4)
+HiFi!B11	formula	=Data!M4&"/"&Data!N4
+HiFi!D11	formula	=Data!P4
+HiFi!E11	formula	=F11*1000
+HiFi!E11	numfmt	0.0
+HiFi!F11	formula	=C11*1000/D11/650
+HiFi!F11	numfmt	0.0000
+HiFi!G11	formula	=$C$3
+HiFi!H11	formula	=G11/F11
+HiFi!H11	numfmt	0.000
+HiFi!I11	formula	=H11/2
+HiFi!I11	numfmt	0.00
+HiFi!J11	value	1
+HiFi!J11	numfmt	0.00
+HiFi!L11	formula	=IF(A11>0,A11,ROW(A11)-ROW($A$8))
+HiFi!M11	formula	=C11>0
+HiFi!M11	numfmt	0.00
+HiFi!A12	formula	=IF(AND(Data!B5<>"",Data!C5=""),A11,Data!C5)
+HiFi!B12	formula	=Data!M5&"/"&Data!N5
+HiFi!D12	formula	=Data!P5
+HiFi!E12	formula	=F12*1000
+HiFi!E12	numfmt	0.0
+HiFi!F12	formula	=C12*1000/D12/650
+HiFi!F12	numfmt	0.0000
+HiFi!G12	formula	=$C$3
+HiFi!H12	formula	=G12/F12
+HiFi!H12	numfmt	0.000
+HiFi!I12	formula	=H12/2
+HiFi!I12	numfmt	0.00
+HiFi!J12	value	1
+HiFi!J12	numfmt	0.00
+HiFi!L12	formula	=IF(A12>0,A12,ROW(A12)-ROW($A$8))
+HiFi!M12	formula	=C12>0
+HiFi!M12	numfmt	0.00
+HiFi!A13	formula	=IF(AND(Data!B6<>"",Data!C6=""),A12,Data!C6)
+HiFi!B13	formula	=Data!M6&"/"&Data!N6
+HiFi!D13	formula	=Data!P6
+HiFi!E13	formula	=F13*1000
+HiFi!E13	numfmt	0.0
+HiFi!F13	formula	=C13*1000/D13/650
+HiFi!F13	numfmt	0.0000
+HiFi!G13	formula	=$C$3
+HiFi!H13	formula	=G13/F13
+HiFi!H13	numfmt	0.000
+HiFi!I13	formula	=H13/2
+HiFi!I13	numfmt	0.00
+HiFi!J13	value	1
+HiFi!J13	numfmt	0.00
+HiFi!L13	formula	=IF(A13>0,A13,ROW(A13)-ROW($A$8))
+HiFi!M13	formula	=C13>0
+HiFi!M13	numfmt	0.00
+HiFi!A14	formula	=IF(AND(Data!B7<>"",Data!C7=""),A13,Data!C7)
+HiFi!B14	formula	=Data!M7&"/"&Data!N7
+HiFi!D14	formula	=Data!P7
+HiFi!E14	formula	=F14*1000
+HiFi!E14	numfmt	0.0
+HiFi!F14	formula	=C14*1000/D14/650
+HiFi!F14	numfmt	0.0000
+HiFi!G14	formula	=$C$3
+HiFi!H14	formula	=G14/F14
+HiFi!H14	numfmt	0.000
+HiFi!I14	formula	=H14/2
+HiFi!I14	numfmt	0.00
+HiFi!J14	value	1
+HiFi!J14	numfmt	0.00
+HiFi!L14	formula	=IF(A14>0,A14,ROW(A14)-ROW($A$8))
+HiFi!M14	formula	=C14>0
+HiFi!M14	numfmt	0.00
+HiFi!A15	formula	=IF(AND(Data!B8<>"",Data!C8=""),A14,Data!C8)
+HiFi!B15	formula	=Data!M8&"/"&Data!N8
+HiFi!D15	formula	=Data!P8
+HiFi!E15	formula	=F15*1000
+HiFi!E15	numfmt	0.0
+HiFi!F15	formula	=C15*1000/D15/650
+HiFi!F15	numfmt	0.0000
+HiFi!G15	formula	=$C$3
+HiFi!H15	formula	=G15/F15
+HiFi!H15	numfmt	0.000
+HiFi!I15	formula	=H15/2
+HiFi!I15	numfmt	0.00
+HiFi!J15	value	1
+HiFi!J15	numfmt	0.00
+HiFi!L15	formula	=IF(A15>0,A15,ROW(A15)-ROW($A$8))
+HiFi!M15	formula	=C15>0
+HiFi!M15	numfmt	0.00
+HiFi!A16	formula	=IF(AND(Data!B9<>"",Data!C9=""),A15,Data!C9)
+HiFi!B16	formula	=Data!M9&"/"&Data!N9
+HiFi!D16	formula	=Data!P9
+HiFi!E16	formula	=F16*1000
+HiFi!E16	numfmt	0.0
+HiFi!F16	formula	=C16*1000/D16/650
+HiFi!F16	numfmt	0.0000
+HiFi!G16	formula	=$C$3
+HiFi!H16	formula	=G16/F16
+HiFi!H16	numfmt	0.000
+HiFi!I16	formula	=H16/2
+HiFi!I16	numfmt	0.00
+HiFi!J16	value	1
+HiFi!J16	numfmt	0.00
+HiFi!L16	formula	=IF(A16>0,A16,ROW(A16)-ROW($A$8))
+HiFi!M16	formula	=C16>0
+HiFi!M16	numfmt	0.00
+HiFi!A17	formula	=IF(AND(Data!B10<>"",Data!C10=""),A16,Data!C10)
+HiFi!B17	formula	=Data!M10&"/"&Data!N10
+HiFi!D17	formula	=Data!P10
+HiFi!E17	formula	=F17*1000
+HiFi!E17	numfmt	0.0
+HiFi!F17	formula	=C17*1000/D17/650
+HiFi!F17	numfmt	0.0000
+HiFi!G17	formula	=$C$3
+HiFi!H17	formula	=G17/F17
+HiFi!H17	numfmt	0.000
+HiFi!I17	formula	=H17/2
+HiFi!I17	numfmt	0.00
+HiFi!J17	value	1
+HiFi!J17	numfmt	0.00
+HiFi!L17	formula	=IF(A17>0,A17,ROW(A17)-ROW($A$8))
+HiFi!M17	formula	=C17>0
+HiFi!M17	numfmt	0.00
+HiFi!A18	formula	=IF(AND(Data!B11<>"",Data!C11=""),A17,Data!C11)
+HiFi!B18	formula	=Data!M11&"/"&Data!N11
+HiFi!D18	formula	=Data!P11
+HiFi!E18	formula	=F18*1000
+HiFi!E18	numfmt	0.0
+HiFi!F18	formula	=C18*1000/D18/650
+HiFi!F18	numfmt	0.0000
+HiFi!G18	formula	=$C$3
+HiFi!H18	formula	=G18/F18
+HiFi!H18	numfmt	0.000
+HiFi!I18	formula	=H18/2
+HiFi!I18	numfmt	0.00
+HiFi!J18	value	1
+HiFi!J18	numfmt	0.00
+HiFi!L18	formula	=IF(A18>0,A18,ROW(A18)-ROW($A$8))
+HiFi!M18	formula	=C18>0
+HiFi!M18	numfmt	0.00
+HiFi!A19	formula	=IF(AND(Data!B12<>"",Data!C12=""),A18,Data!C12)
+HiFi!B19	formula	=Data!M12&"/"&Data!N12
+HiFi!D19	formula	=Data!P12
+HiFi!E19	formula	=F19*1000
+HiFi!E19	numfmt	0.0
+HiFi!F19	formula	=C19*1000/D19/650
+HiFi!F19	numfmt	0.0000
+HiFi!G19	formula	=$C$3
+HiFi!H19	formula	=G19/F19
+HiFi!H19	numfmt	0.000
+HiFi!I19	formula	=H19/2
+HiFi!I19	numfmt	0.00
+HiFi!J19	value	1
+HiFi!J19	numfmt	0.00
+HiFi!L19	formula	=IF(A19>0,A19,ROW(A19)-ROW($A$8))
+HiFi!M19	formula	=C19>0
+HiFi!M19	numfmt	0.00
+HiFi!A20	formula	=IF(AND(Data!B13<>"",Data!C13=""),A19,Data!C13)
+HiFi!B20	formula	=Data!M13&"/"&Data!N13
+HiFi!D20	formula	=Data!P13
+HiFi!E20	formula	=F20*1000
+HiFi!E20	numfmt	0.0
+HiFi!F20	formula	=C20*1000/D20/650
+HiFi!F20	numfmt	0.0000
+HiFi!G20	formula	=$C$3
+HiFi!H20	formula	=G20/F20
+HiFi!H20	numfmt	0.000
+HiFi!I20	formula	=H20/2
+HiFi!I20	numfmt	0.00
+HiFi!J20	value	1
+HiFi!J20	numfmt	0.00
+HiFi!L20	formula	=IF(A20>0,A20,ROW(A20)-ROW($A$8))
+HiFi!M20	formula	=C20>0
+HiFi!M20	numfmt	0.00
+HiFi!B22	value	Backbone fragments
+HiFi!B23	value	Sample name\n(Backbone name)
+HiFi!C23	value	\nConc.
+HiFi!D23	value	Fragment length (bp)
+HiFi!E23	value	Fragment\nstock conc.
+HiFi!G23	value	Reaction conc.
+HiFi!H23	value	Volume needed\n(final 20 uL)
+HiFi!I23	value	Volume needed\n(final 10 uL)
+HiFi!J23	value	Dilution factor
+HiFi!C24	value	ng/uL
+HiFi!E24	value	nmol/L
+HiFi!F24	value	pmol/uL
+HiFi!G24	value	pmol/uL
+HiFi!H24	value	uL
+HiFi!I24	value	uL
+HiFi!A25	formula	=Data!C2
+HiFi!B25	formula	=Data!J2
+HiFi!D25	formula	=Data!L2
+HiFi!E25	formula	=F25*1000
+HiFi!E25	numfmt	0.0
+HiFi!F25	formula	=C25*1000/D25/650
+HiFi!F25	numfmt	0.0000
+HiFi!G25	formula	=$C$3
+HiFi!H25	formula	=G25/F25
+HiFi!H25	numfmt	0.000
+HiFi!I25	formula	=H25/2
+HiFi!I25	numfmt	0.00
+HiFi!J25	value	1
+HiFi!J25	numfmt	0.00
+HiFi!A26	formula	=Data!C3
+HiFi!B26	formula	=Data!J3
+HiFi!D26	formula	=Data!L3
+HiFi!E26	formula	=F26*1000
+HiFi!E26	numfmt	0.0
+HiFi!F26	formula	=C26*1000/D26/650
+HiFi!F26	numfmt	0.0000
+HiFi!G26	formula	=$C$3
+HiFi!H26	formula	=G26/F26
+HiFi!H26	numfmt	0.000
+HiFi!I26	formula	=H26/2
+HiFi!I26	numfmt	0.00
+HiFi!J26	value	1
+HiFi!J26	numfmt	0.00
+HiFi!A27	formula	=Data!C4
+HiFi!B27	formula	=Data!J4
+HiFi!D27	formula	=Data!L4
+HiFi!E27	formula	=F27*1000
+HiFi!E27	numfmt	0.0
+HiFi!F27	formula	=C27*1000/D27/650
+HiFi!F27	numfmt	0.0000
+HiFi!G27	formula	=$C$3
+HiFi!H27	formula	=G27/F27
+HiFi!H27	numfmt	0.000
+HiFi!I27	formula	=H27/2
+HiFi!I27	numfmt	0.00
+HiFi!J27	value	1
+HiFi!J27	numfmt	0.00
+HiFi!A28	formula	=Data!C5
+HiFi!B28	formula	=Data!J5
+HiFi!D28	formula	=Data!L5
+HiFi!E28	formula	=F28*1000
+HiFi!E28	numfmt	0.0
+HiFi!F28	formula	=C28*1000/D28/650
+HiFi!F28	numfmt	0.0000
+HiFi!G28	formula	=$C$3
+HiFi!H28	formula	=G28/F28
+HiFi!H28	numfmt	0.000
+HiFi!I28	formula	=H28/2
+HiFi!I28	numfmt	0.00
+HiFi!J28	value	1
+HiFi!J28	numfmt	0.00
+HiFi!A29	formula	=Data!C6
+HiFi!B29	formula	=Data!J6
+HiFi!D29	formula	=Data!L6
+HiFi!E29	formula	=F29*1000
+HiFi!E29	numfmt	0.0
+HiFi!F29	formula	=C29*1000/D29/650
+HiFi!F29	numfmt	0.0000
+HiFi!G29	formula	=$C$3
+HiFi!H29	formula	=G29/F29
+HiFi!H29	numfmt	0.000
+HiFi!I29	formula	=H29/2
+HiFi!I29	numfmt	0.00
+HiFi!J29	value	1
+HiFi!J29	numfmt	0.00
+HiFi!A30	formula	=Data!C7
+HiFi!B30	formula	=Data!J7
+HiFi!D30	formula	=Data!L7
+HiFi!E30	formula	=F30*1000
+HiFi!E30	numfmt	0.0
+HiFi!F30	formula	=C30*1000/D30/650
+HiFi!F30	numfmt	0.0000
+HiFi!G30	formula	=$C$3
+HiFi!H30	formula	=G30/F30
+HiFi!H30	numfmt	0.000
+HiFi!I30	formula	=H30/2
+HiFi!I30	numfmt	0.00
+HiFi!J30	value	1
+HiFi!J30	numfmt	0.00
+HiFi!A31	formula	=Data!C8
+HiFi!B31	formula	=Data!J8
+HiFi!D31	formula	=Data!L8
+HiFi!E31	formula	=F31*1000
+HiFi!E31	numfmt	0.0
+HiFi!F31	formula	=C31*1000/D31/650
+HiFi!F31	numfmt	0.0000
+HiFi!G31	formula	=$C$3
+HiFi!H31	formula	=G31/F31
+HiFi!H31	numfmt	0.000
+HiFi!I31	formula	=H31/2
+HiFi!I31	numfmt	0.00
+HiFi!J31	value	1
+HiFi!J31	numfmt	0.00
+HiFi!A32	formula	=Data!C9
+HiFi!B32	formula	=Data!J9
+HiFi!D32	formula	=Data!L9
+HiFi!E32	formula	=F32*1000
+HiFi!E32	numfmt	0.0
+HiFi!F32	formula	=C32*1000/D32/650
+HiFi!F32	numfmt	0.0000
+HiFi!G32	formula	=$C$3
+HiFi!H32	formula	=G32/F32
+HiFi!H32	numfmt	0.000
+HiFi!I32	formula	=H32/2
+HiFi!I32	numfmt	0.00
+HiFi!J32	value	1
+HiFi!J32	numfmt	0.00
+HiFi!A33	formula	=Data!C10
+HiFi!B33	formula	=Data!J10
+HiFi!D33	formula	=Data!L10
+HiFi!E33	formula	=F33*1000
+HiFi!E33	numfmt	0.0
+HiFi!F33	formula	=C33*1000/D33/650
+HiFi!F33	numfmt	0.0000
+HiFi!G33	formula	=$C$3
+HiFi!H33	formula	=G33/F33
+HiFi!H33	numfmt	0.000
+HiFi!I33	formula	=H33/2
+HiFi!I33	numfmt	0.00
+HiFi!J33	value	1
+HiFi!J33	numfmt	0.00
+HiFi!A34	formula	=Data!C11
+HiFi!B34	formula	=Data!J11
+HiFi!D34	formula	=Data!L11
+HiFi!E34	formula	=F34*1000
+HiFi!E34	numfmt	0.0
+HiFi!F34	formula	=C34*1000/D34/650
+HiFi!F34	numfmt	0.0000
+HiFi!G34	formula	=$C$3
+HiFi!H34	formula	=G34/F34
+HiFi!H34	numfmt	0.000
+HiFi!I34	formula	=H34/2
+HiFi!I34	numfmt	0.00
+HiFi!J34	value	1
+HiFi!J34	numfmt	0.00
+HiFi!A35	formula	=Data!C12
+HiFi!B35	formula	=Data!J12
+HiFi!D35	formula	=Data!L12
+HiFi!E35	formula	=F35*1000
+HiFi!E35	numfmt	0.0
+HiFi!F35	formula	=C35*1000/D35/650
+HiFi!F35	numfmt	0.0000
+HiFi!G35	formula	=$C$3
+HiFi!H35	formula	=G35/F35
+HiFi!H35	numfmt	0.000
+HiFi!I35	formula	=H35/2
+HiFi!I35	numfmt	0.00
+HiFi!J35	value	1
+HiFi!J35	numfmt	0.00
+HiFi!A36	formula	=Data!C13
+HiFi!B36	formula	=Data!J13
+HiFi!D36	formula	=Data!L13
+HiFi!E36	formula	=F36*1000
+HiFi!E36	numfmt	0.0
+HiFi!F36	formula	=C36*1000/D36/650
+HiFi!F36	numfmt	0.0000
+HiFi!G36	formula	=$C$3
+HiFi!H36	formula	=G36/F36
+HiFi!H36	numfmt	0.000
+HiFi!I36	formula	=H36/2
+HiFi!I36	numfmt	0.00
+HiFi!J36	value	1
+HiFi!J36	numfmt	0.00
+HiFi!C38	value	Reagent volume (uL)
+HiFi!A39	formula	=A9
+HiFi!B39	formula	=IF(M9=TRUE,"insert :","")
+HiFi!C39	formula	=IF(M9=TRUE,I9,"")
+HiFi!C39	numfmt	0.00
+HiFi!D39	formula	=IF($M39<>TRUE,"","backbone: ")
+HiFi!D39	numfmt	0.00
+HiFi!E39	formula	=IF($M39<>TRUE,"",I25)
+HiFi!E39	numfmt	0.00
+HiFi!F39	formula	=IF($M39<>TRUE,"","H2O: ")
+HiFi!F39	numfmt	0.00
+HiFi!G39	formula	=IF($M39<>TRUE,"",$A$3/2-E39-L39)
+HiFi!G39	numfmt	0.00
+HiFi!H39	formula	=IF($M39<>TRUE,"","2×HiFi: ")
+HiFi!H39	numfmt	0.00
+HiFi!I39	formula	=IF($M39<>TRUE,"",$A$3/2)
+HiFi!I39	numfmt	0.00
+HiFi!J39	formula	=IF($M39<>TRUE,"","→ 50°C, 60 min")
+HiFi!J39	numfmt	0.00
+HiFi!L39	formula	=IF(A40=A39,C39+L40,C39)
+HiFi!M39	formula	=AND(A39>0,A38<>A39)
+HiFi!A40	formula	=A10
+HiFi!B40	formula	=IF(M10=TRUE,"insert :","")
+HiFi!C40	formula	=IF(M10=TRUE,I10,"")
+HiFi!C40	numfmt	0.00
+HiFi!D40	formula	=IF($M40<>TRUE,"","backbone: ")
+HiFi!D40	numfmt	0.00
+HiFi!E40	formula	=IF($M40<>TRUE,"",I26)
+HiFi!E40	numfmt	0.00
+HiFi!F40	formula	=IF($M40<>TRUE,"","H2O: ")
+HiFi!F40	numfmt	0.00
+HiFi!G40	formula	=IF($M40<>TRUE,"",$A$3/2-E40-L40)
+HiFi!G40	numfmt	0.00
+HiFi!H40	formula	=IF($M40<>TRUE,"","2×HiFi: ")
+HiFi!H40	numfmt	0.00
+HiFi!I40	formula	=IF($M40<>TRUE,"",$A$3/2)
+HiFi!I40	numfmt	0.00
+HiFi!J40	formula	=IF($M40<>TRUE,"","→ 50°C, 60 min")
+HiFi!J40	numfmt	0.00
+HiFi!L40	formula	=IF(A41=A40,C40+L41,C40)
+HiFi!M40	formula	=AND(A40>0,A39<>A40)
+HiFi!A41	formula	=A11
+HiFi!B41	formula	=IF(M11=TRUE,"insert :","")
+HiFi!C41	formula	=IF(M11=TRUE,I11,"")
+HiFi!C41	numfmt	0.00
+HiFi!D41	formula	=IF($M41<>TRUE,"","backbone: ")
+HiFi!D41	numfmt	0.00
+HiFi!E41	formula	=IF($M41<>TRUE,"",I27)
+HiFi!E41	numfmt	0.00
+HiFi!F41	formula	=IF($M41<>TRUE,"","H2O: ")
+HiFi!F41	numfmt	0.00
+HiFi!G41	formula	=IF($M41<>TRUE,"",$A$3/2-E41-L41)
+HiFi!G41	numfmt	0.00
+HiFi!H41	formula	=IF($M41<>TRUE,"","2×HiFi: ")
+HiFi!H41	numfmt	0.00
+HiFi!I41	formula	=IF($M41<>TRUE,"",$A$3/2)
+HiFi!I41	numfmt	0.00
+HiFi!J41	formula	=IF($M41<>TRUE,"","→ 50°C, 60 min")
+HiFi!J41	numfmt	0.00
+HiFi!L41	formula	=IF(A42=A41,C41+L42,C41)
+HiFi!M41	formula	=AND(A41>0,A40<>A41)
+HiFi!A42	formula	=A12
+HiFi!B42	formula	=IF(M12=TRUE,"insert :","")
+HiFi!C42	formula	=IF(M12=TRUE,I12,"")
+HiFi!C42	numfmt	0.00
+HiFi!D42	formula	=IF($M42<>TRUE,"","backbone: ")
+HiFi!D42	numfmt	0.00
+HiFi!E42	formula	=IF($M42<>TRUE,"",I28)
+HiFi!E42	numfmt	0.00
+HiFi!F42	formula	=IF($M42<>TRUE,"","H2O: ")
+HiFi!F42	numfmt	0.00
+HiFi!G42	formula	=IF($M42<>TRUE,"",$A$3/2-E42-L42)
+HiFi!G42	numfmt	0.00
+HiFi!H42	formula	=IF($M42<>TRUE,"","2×HiFi: ")
+HiFi!H42	numfmt	0.00
+HiFi!I42	formula	=IF($M42<>TRUE,"",$A$3/2)
+HiFi!I42	numfmt	0.00
+HiFi!J42	formula	=IF($M42<>TRUE,"","→ 50°C, 60 min")
+HiFi!J42	numfmt	0.00
+HiFi!L42	formula	=IF(A43=A42,C42+L43,C42)
+HiFi!M42	formula	=AND(A42>0,A41<>A42)
+HiFi!A43	formula	=A13
+HiFi!B43	formula	=IF(M13=TRUE,"insert :","")
+HiFi!C43	formula	=IF(M13=TRUE,I13,"")
+HiFi!C43	numfmt	0.00
+HiFi!D43	formula	=IF($M43<>TRUE,"","backbone: ")
+HiFi!D43	numfmt	0.00
+HiFi!E43	formula	=IF($M43<>TRUE,"",I29)
+HiFi!E43	numfmt	0.00
+HiFi!F43	formula	=IF($M43<>TRUE,"","H2O: ")
+HiFi!F43	numfmt	0.00
+HiFi!G43	formula	=IF($M43<>TRUE,"",$A$3/2-E43-L43)
+HiFi!G43	numfmt	0.00
+HiFi!H43	formula	=IF($M43<>TRUE,"","2×HiFi: ")
+HiFi!H43	numfmt	0.00
+HiFi!I43	formula	=IF($M43<>TRUE,"",$A$3/2)
+HiFi!I43	numfmt	0.00
+HiFi!J43	formula	=IF($M43<>TRUE,"","→ 50°C, 60 min")
+HiFi!J43	numfmt	0.00
+HiFi!L43	formula	=IF(A44=A43,C43+L44,C43)
+HiFi!M43	formula	=AND(A43>0,A42<>A43)
+HiFi!A44	formula	=A14
+HiFi!B44	formula	=IF(M14=TRUE,"insert :","")
+HiFi!C44	formula	=IF(M14=TRUE,I14,"")
+HiFi!C44	numfmt	0.00
+HiFi!D44	formula	=IF($M44<>TRUE,"","backbone: ")
+HiFi!D44	numfmt	0.00
+HiFi!E44	formula	=IF($M44<>TRUE,"",I30)
+HiFi!E44	numfmt	0.00
+HiFi!F44	formula	=IF($M44<>TRUE,"","H2O: ")
+HiFi!F44	numfmt	0.00
+HiFi!G44	formula	=IF($M44<>TRUE,"",$A$3/2-E44-L44)
+HiFi!G44	numfmt	0.00
+HiFi!H44	formula	=IF($M44<>TRUE,"","2×HiFi: ")
+HiFi!H44	numfmt	0.00
+HiFi!I44	formula	=IF($M44<>TRUE,"",$A$3/2)
+HiFi!I44	numfmt	0.00
+HiFi!J44	formula	=IF($M44<>TRUE,"","→ 50°C, 60 min")
+HiFi!J44	numfmt	0.00
+HiFi!L44	formula	=IF(A45=A44,C44+L45,C44)
+HiFi!M44	formula	=AND(A44>0,A43<>A44)
+HiFi!A45	formula	=A15
+HiFi!B45	formula	=IF(M15=TRUE,"insert :","")
+HiFi!C45	formula	=IF(M15=TRUE,I15,"")
+HiFi!C45	numfmt	0.00
+HiFi!D45	formula	=IF($M45<>TRUE,"","backbone: ")
+HiFi!D45	numfmt	0.00
+HiFi!E45	formula	=IF($M45<>TRUE,"",I31)
+HiFi!E45	numfmt	0.00
+HiFi!F45	formula	=IF($M45<>TRUE,"","H2O: ")
+HiFi!F45	numfmt	0.00
+HiFi!G45	formula	=IF($M45<>TRUE,"",$A$3/2-E45-L45)
+HiFi!G45	numfmt	0.00
+HiFi!H45	formula	=IF($M45<>TRUE,"","2×HiFi: ")
+HiFi!H45	numfmt	0.00
+HiFi!I45	formula	=IF($M45<>TRUE,"",$A$3/2)
+HiFi!I45	numfmt	0.00
+HiFi!J45	formula	=IF($M45<>TRUE,"","→ 50°C, 60 min")
+HiFi!J45	numfmt	0.00
+HiFi!L45	formula	=IF(A46=A45,C45+L46,C45)
+HiFi!M45	formula	=AND(A45>0,A44<>A45)
+HiFi!A46	formula	=A16
+HiFi!B46	formula	=IF(M16=TRUE,"insert :","")
+HiFi!C46	formula	=IF(M16=TRUE,I16,"")
+HiFi!C46	numfmt	0.00
+HiFi!D46	formula	=IF($M46<>TRUE,"","backbone: ")
+HiFi!D46	numfmt	0.00
+HiFi!E46	formula	=IF($M46<>TRUE,"",I32)
+HiFi!E46	numfmt	0.00
+HiFi!F46	formula	=IF($M46<>TRUE,"","H2O: ")
+HiFi!F46	numfmt	0.00
+HiFi!G46	formula	=IF($M46<>TRUE,"",$A$3/2-E46-L46)
+HiFi!G46	numfmt	0.00
+HiFi!H46	formula	=IF($M46<>TRUE,"","2×HiFi: ")
+HiFi!H46	numfmt	0.00
+HiFi!I46	formula	=IF($M46<>TRUE,"",$A$3/2)
+HiFi!I46	numfmt	0.00
+HiFi!J46	formula	=IF($M46<>TRUE,"","→ 50°C, 60 min")
+HiFi!J46	numfmt	0.00
+HiFi!L46	formula	=IF(A47=A46,C46+L47,C46)
+HiFi!M46	formula	=AND(A46>0,A45<>A46)
+HiFi!A47	formula	=A17
+HiFi!B47	formula	=IF(M17=TRUE,"insert :","")
+HiFi!C47	formula	=IF(M17=TRUE,I17,"")
+HiFi!C47	numfmt	0.00
+HiFi!D47	formula	=IF($M47<>TRUE,"","backbone: ")
+HiFi!D47	numfmt	0.00
+HiFi!E47	formula	=IF($M47<>TRUE,"",I33)
+HiFi!E47	numfmt	0.00
+HiFi!F47	formula	=IF($M47<>TRUE,"","H2O: ")
+HiFi!F47	numfmt	0.00
+HiFi!G47	formula	=IF($M47<>TRUE,"",$A$3/2-E47-L47)
+HiFi!G47	numfmt	0.00
+HiFi!H47	formula	=IF($M47<>TRUE,"","2×HiFi: ")
+HiFi!H47	numfmt	0.00
+HiFi!I47	formula	=IF($M47<>TRUE,"",$A$3/2)
+HiFi!I47	numfmt	0.00
+HiFi!J47	formula	=IF($M47<>TRUE,"","→ 50°C, 60 min")
+HiFi!J47	numfmt	0.00
+HiFi!L47	formula	=IF(A48=A47,C47+L48,C47)
+HiFi!M47	formula	=AND(A47>0,A46<>A47)
+HiFi!A48	formula	=A18
+HiFi!B48	formula	=IF(M18=TRUE,"insert :","")
+HiFi!C48	formula	=IF(M18=TRUE,I18,"")
+HiFi!C48	numfmt	0.00
+HiFi!D48	formula	=IF($M48<>TRUE,"","backbone: ")
+HiFi!D48	numfmt	0.00
+HiFi!E48	formula	=IF($M48<>TRUE,"",I34)
+HiFi!E48	numfmt	0.00
+HiFi!F48	formula	=IF($M48<>TRUE,"","H2O: ")
+HiFi!F48	numfmt	0.00
+HiFi!G48	formula	=IF($M48<>TRUE,"",$A$3/2-E48-L48)
+HiFi!G48	numfmt	0.00
+HiFi!H48	formula	=IF($M48<>TRUE,"","2×HiFi: ")
+HiFi!H48	numfmt	0.00
+HiFi!I48	formula	=IF($M48<>TRUE,"",$A$3/2)
+HiFi!I48	numfmt	0.00
+HiFi!J48	formula	=IF($M48<>TRUE,"","→ 50°C, 60 min")
+HiFi!J48	numfmt	0.00
+HiFi!L48	formula	=IF(A49=A48,C48+L49,C48)
+HiFi!M48	formula	=AND(A48>0,A47<>A48)
+HiFi!A49	formula	=A19
+HiFi!B49	formula	=IF(M19=TRUE,"insert :","")
+HiFi!C49	formula	=IF(M19=TRUE,I19,"")
+HiFi!C49	numfmt	0.00
+HiFi!D49	formula	=IF($M49<>TRUE,"","backbone: ")
+HiFi!D49	numfmt	0.00
+HiFi!E49	formula	=IF($M49<>TRUE,"",I35)
+HiFi!E49	numfmt	0.00
+HiFi!F49	formula	=IF($M49<>TRUE,"","H2O: ")
+HiFi!F49	numfmt	0.00
+HiFi!G49	formula	=IF($M49<>TRUE,"",$A$3/2-E49-L49)
+HiFi!G49	numfmt	0.00
+HiFi!H49	formula	=IF($M49<>TRUE,"","2×HiFi: ")
+HiFi!H49	numfmt	0.00
+HiFi!I49	formula	=IF($M49<>TRUE,"",$A$3/2)
+HiFi!I49	numfmt	0.00
+HiFi!J49	formula	=IF($M49<>TRUE,"","→ 50°C, 60 min")
+HiFi!J49	numfmt	0.00
+HiFi!L49	formula	=IF(A50=A49,C49+L50,C49)
+HiFi!M49	formula	=AND(A49>0,A48<>A49)
+HiFi!A50	formula	=A20
+HiFi!B50	formula	=IF(M20=TRUE,"insert :","")
+HiFi!C50	formula	=IF(M20=TRUE,I20,"")
+HiFi!C50	numfmt	0.00
+HiFi!D50	formula	=IF($M50<>TRUE,"","backbone: ")
+HiFi!D50	numfmt	0.00
+HiFi!E50	formula	=IF($M50<>TRUE,"",I36)
+HiFi!E50	numfmt	0.00
+HiFi!F50	formula	=IF($M50<>TRUE,"","H2O: ")
+HiFi!F50	numfmt	0.00
+HiFi!G50	formula	=IF($M50<>TRUE,"",$A$3/2-E50-L50)
+HiFi!G50	numfmt	0.00
+HiFi!H50	formula	=IF($M50<>TRUE,"","2×HiFi: ")
+HiFi!H50	numfmt	0.00
+HiFi!I50	formula	=IF($M50<>TRUE,"",$A$3/2)
+HiFi!I50	numfmt	0.00
+HiFi!J50	formula	=IF($M50<>TRUE,"","→ 50°C, 60 min")
+HiFi!J50	numfmt	0.00
+HiFi!L50	formula	=IF(A51=A50,C50+L51,C50)
+HiFi!M50	formula	=AND(A50>0,A49<>A50)
+TF!A1	formula	=TODAY()
+TF!A1	numfmt	yyyy/mm/dd
+TF!C1	value	Cloning with HiFi assembly
+TF!A3	value	3. Transformation
+TF!B5	value	Samples
+TF!C5	formula	=COUNTA(Data!C2:C13)
+TF!D5	value	samples
+TF!B6	value	DH5α competent cells
+TF!B6	comment	25 uL of competent cells per sample is the author's value. Change the 25 in the formula in column C, the text in column E and the instruction line in row 12 to match the cells you use.
+TF!C6	formula	=C5*25
+TF!D6	value	uL
+TF!E6	value	25 uL/sample
+TF!B7	value	Recovery medium
+TF!B7	comment	900 uL of medium per sample is the author's value. Change the 900 in the formula in column C, the text in column E and the instruction line in row 18 to match the medium you use.
+TF!C7	formula	=C5*900
+TF!D7	value	uL
+TF!E7	value	900 uL/sample
+TF!B8	value	LB+Amp plate
+TF!C8	formula	=ROUNDUP(C5/4,0)
+TF!D8	value	plates
+TF!E8	value	4-section plates can be used
+TF!A10	value	□
+TF!B10	value	Take the required number of DH5α competent cells out of the -80°C freezer
+TF!B11	value	Start thawing in your hand while carrying, then thaw completely at room temperature
+TF!A12	value	□
+TF!B12	value	Dispense 25 uL of DH5α per tube and add 2 uL of the assembly mix after the reaction
+TF!A13	value	□
+TF!B13	value	Mix well by vortexing for 1~10 sec
+TF!A14	value	□
+TF!B14	value	0~10 min on ice (optional)
+TF!B15	value	Add the following 2 steps if needed
+TF!A16	value	□
+TF!B16	value	Heat shock: 42°C, 45~90 sec
+TF!A17	value	□
+TF!B17	value	1~5 min on ice (required in this case)
+TF!A18	value	□
+TF!B18	value	Add 900 uL of recovery medium and incubate at 200 rpm, 37°C for 30~60 min
+TF!A19	value	□
+TF!B19	value	Add ~100 uL to a pre-warmed plate and spread it unevenly on purpose
+TF!A20	value	□
+TF!B20	value	37°C, overnight
+TF!B21	value	If more than 2 days pass, run a program of 37°C, 24 hr  →  4°C, hold
+TF!B24	value	Sample list
+TF!B25	value	Sub. No.
+TF!C25	value	Plasmid name
+TF!D25	value	Plate
+TF!E25	value	Colony
+TF!F25	value	Memo
+TF!A26	formula	=IF(Data!C2="","","□")
+TF!B26	formula	=IF(Data!C2="","",Data!C2)
+TF!C26	formula	=IF(Data!C2="","",Data!G2)
+TF!D26	formula	=IF(Data!C2="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A27	formula	=IF(Data!C3="","","□")
+TF!B27	formula	=IF(Data!C3="","",Data!C3)
+TF!C27	formula	=IF(Data!C3="","",Data!G3)
+TF!D27	formula	=IF(Data!C3="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A28	formula	=IF(Data!C4="","","□")
+TF!B28	formula	=IF(Data!C4="","",Data!C4)
+TF!C28	formula	=IF(Data!C4="","",Data!G4)
+TF!D28	formula	=IF(Data!C4="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A29	formula	=IF(Data!C5="","","□")
+TF!B29	formula	=IF(Data!C5="","",Data!C5)
+TF!C29	formula	=IF(Data!C5="","",Data!G5)
+TF!D29	formula	=IF(Data!C5="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A30	formula	=IF(Data!C6="","","□")
+TF!B30	formula	=IF(Data!C6="","",Data!C6)
+TF!C30	formula	=IF(Data!C6="","",Data!G6)
+TF!D30	formula	=IF(Data!C6="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A31	formula	=IF(Data!C7="","","□")
+TF!B31	formula	=IF(Data!C7="","",Data!C7)
+TF!C31	formula	=IF(Data!C7="","",Data!G7)
+TF!D31	formula	=IF(Data!C7="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A32	formula	=IF(Data!C8="","","□")
+TF!B32	formula	=IF(Data!C8="","",Data!C8)
+TF!C32	formula	=IF(Data!C8="","",Data!G8)
+TF!D32	formula	=IF(Data!C8="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A33	formula	=IF(Data!C9="","","□")
+TF!B33	formula	=IF(Data!C9="","",Data!C9)
+TF!C33	formula	=IF(Data!C9="","",Data!G9)
+TF!D33	formula	=IF(Data!C9="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A34	formula	=IF(Data!C10="","","□")
+TF!B34	formula	=IF(Data!C10="","",Data!C10)
+TF!C34	formula	=IF(Data!C10="","",Data!G10)
+TF!D34	formula	=IF(Data!C10="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A35	formula	=IF(Data!C11="","","□")
+TF!B35	formula	=IF(Data!C11="","",Data!C11)
+TF!C35	formula	=IF(Data!C11="","",Data!G11)
+TF!D35	formula	=IF(Data!C11="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A36	formula	=IF(Data!C12="","","□")
+TF!B36	formula	=IF(Data!C12="","",Data!C12)
+TF!C36	formula	=IF(Data!C12="","",Data!G12)
+TF!D36	formula	=IF(Data!C12="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
+TF!A37	formula	=IF(Data!C13="","","□")
+TF!B37	formula	=IF(Data!C13="","",Data!C13)
+TF!C37	formula	=IF(Data!C13="","",Data!G13)
+TF!D37	formula	=IF(Data!C13="","",ROUNDUP((ROW()-25)/4,0)&"-"&MOD(ROW()-26,4)+1)
