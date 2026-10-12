@@ -82,7 +82,8 @@ def test_enzyme_warnings(capsys, tmp_path, rows, enzyme_template):
     warns = " ".join(lines(out, "WARN"))
     assert "re1 'O-99' is not in the RElist" in warns and "backbone prepared by PCR" in warns
     assert "re2 'NoSuchI' is not in the RElist" in warns and "'Check'" in warns
-    assert "built for 10ﾃ佑utSmart" in warns and "BglII" in warns and "r3.1" in warns
+    assert "built for 10" in warns and "CutSmart" in warns   # ASCII only: survives a re-save
+    assert "BglII" in warns and "r3.1" in warns
 
 
 def test_a_pcr_backbone_row_gets_one_warning_not_two(capsys, tmp_path, rows, enzyme_template):
